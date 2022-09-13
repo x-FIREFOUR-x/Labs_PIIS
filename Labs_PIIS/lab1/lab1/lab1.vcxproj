@@ -140,6 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="lab1.cpp" />
+    <ClCompile Include="Maze.cpp" />
+    <ClCompile Include="MazeReaderWriter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Maze.h" />
+    <ClInclude Include="MazeReaderWriter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
