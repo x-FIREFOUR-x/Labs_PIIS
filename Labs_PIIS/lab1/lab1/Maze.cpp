@@ -46,6 +46,16 @@ vector<vector<int>> Maze::get_maze()
     return maze;
 }
 
+int Maze::get_width_maze()
+{
+    return maze[0].size();
+}
+
+int Maze::get_hight_maze()
+{
+    return maze.size();
+}
+
 bool Maze::is_cell(pair<int, int> cell)
 {
     if (cell.first < 0 || cell.first > maze.size() - 1)
@@ -58,8 +68,13 @@ bool Maze::is_cell(pair<int, int> cell)
     return true;
 }
 
-bool Maze::get_value_cell(pair<int, int> cell)
+int Maze::get_value_cell(pair<int, int> cell)
 {
     return maze[cell.first][cell.second];
+}
+
+int Maze::get_value_cell(int line, int column)
+{
+    return maze[line][column];
 }
 

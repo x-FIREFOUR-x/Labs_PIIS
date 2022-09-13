@@ -40,3 +40,58 @@ Maze MazeReaderWriter::read_maze_with_file(string filename)
         return Maze(maze, start, end);
     }
 }
+
+void MazeReaderWriter::write_console_maze_and_path(Maze& maze)
+{
+    cout << "----------Maze-----------" << endl;
+
+    vector<vector<char>> maze_output;
+    for (int i = 0; i < maze.get_hight_maze(); i++)
+    {
+        vector<char> line;
+        for (int j = 0; j < maze.get_width_maze(); j++)
+        {
+            if (maze.get_value_cell(i, j) == 0)
+            {
+                line.push_back('#');
+            }
+            else
+            {
+                line.push_back('0');
+            }
+        }
+        maze_output.push_back(line);
+    }
+
+    list<pair<int, int>> path = maze.get_path();
+    int code = 65;
+    for (auto elem: path)
+    {
+        maze_output[elem.first][elem.second] = code;
+
+        code++;
+        if (code > 90)
+            code = 65;
+    }
+
+    for (int i = 0; i < maze_output.size(); i++)
+    {
+        for (int j = 0; j < maze_output[i].size(); j++)
+        {
+            cout << maze_output[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    cout << endl << "Path: " << endl;
+    for (auto elem : path)
+    {
+        
+        if (elem != path.back())
+            cout << elem.first << ";" << elem.second << " -> ";
+        else
+            cout << elem.first << ";" << elem.second << endl;
+    }
+
+    cout << "-------------------------" << endl;
+}

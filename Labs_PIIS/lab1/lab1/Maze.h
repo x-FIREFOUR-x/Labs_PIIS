@@ -28,7 +28,11 @@ public:
 
 	vector<vector<int>> get_maze();
 
+	int get_width_maze();
+	int get_hight_maze();
+
 	bool is_cell(pair<int, int> cell);
-	bool get_value_cell(pair<int, int> cell);
+	int get_value_cell(pair<int, int> cell);
+	int get_value_cell(int line, int column);
 };
 

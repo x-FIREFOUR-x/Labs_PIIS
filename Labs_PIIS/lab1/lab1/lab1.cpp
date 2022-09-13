@@ -15,5 +15,7 @@ int main()
     aStar.search_path(maze);
     list<pair<int, int>> res = maze.get_path();
 
+    reader.write_console_maze_and_path(maze);
+
     return 0;
 }
