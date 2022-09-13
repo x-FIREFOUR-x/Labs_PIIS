@@ -13,5 +13,6 @@ private:
 
 public:
 	Maze read_maze_with_file(string filename);
+
 };
 

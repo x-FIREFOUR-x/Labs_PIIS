@@ -24,12 +24,24 @@
     <ClCompile Include="MazeReaderWriter.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="AdjCells.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Maze.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="MazeReaderWriter.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="AStar.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="AdjCells.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

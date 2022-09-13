@@ -31,3 +31,35 @@ void Maze::set_end(const pair<int, int> end)
     this->end = end;
 }
 
+void Maze::set_path(list<pair<int, int>>& path)
+{
+    this->path = path;
+}
+
+list<pair<int, int>> Maze::get_path()
+{
+    return path;
+}
+
+vector<vector<int>> Maze::get_maze()
+{
+    return maze;
+}
+
+bool Maze::is_cell(pair<int, int> cell)
+{
+    if (cell.first < 0 || cell.first > maze.size() - 1)
+        return false;
+    if (cell.second < 0 || cell.second > maze[0].size() - 1)
+        return false;
+    if(maze[cell.first][cell.second] == 0)
+        return false;
+
+    return true;
+}
+
+bool Maze::get_value_cell(pair<int, int> cell)
+{
+    return maze[cell.first][cell.second];
+}
+
