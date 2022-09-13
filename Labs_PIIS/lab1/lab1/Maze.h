@@ -34,5 +34,7 @@ public:
 	bool is_cell(pair<int, int> cell);
 	int get_value_cell(pair<int, int> cell);
 	int get_value_cell(int line, int column);
+	void set_value_cell(pair<int, int> cell, int value);
+	void set_value_cell(int line, int column, int value);
 };
 

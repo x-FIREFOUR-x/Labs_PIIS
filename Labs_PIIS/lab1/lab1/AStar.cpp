@@ -21,18 +21,7 @@ bool AStar::search_path(Maze& maze)
             path_searched = true;
     }
 
-    list<pair<int, int>> result_path;
-    if (path_searched)
-    {
-        pair<int, int> cur_cell = maze.get_end();
-        while (cur_cell != maze.get_start())
-        {
-            result_path.push_front(cur_cell);
-            cur_cell = list_closed[cur_cell];
-        }
-        result_path.push_front(cur_cell);
-    }
-    maze.set_path(result_path);
+    get_path(path_searched, maze);
 
     return path_searched;
 }
@@ -46,8 +35,6 @@ int AStar::calculate_heuristics(pair<int, int> cell1, pair<int, int> cell2)
 
 void AStar::add_adjacent_cells(pair<int, int> cell, Maze& maze)
 {
-    //pair<int, int> new_cell;
-
     pair<int, int> new_cell = make_pair<int, int>((int)cell.first, (int)cell.second + 1);
     add_adjacent_cell(cell, new_cell, maze, 10);
     
@@ -83,6 +70,22 @@ void AStar::add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_cell,
                 AdjCells(new_cell, prev_cell)
             ));
     }
+}
+
+void AStar::get_path(bool path_searched, Maze& maze)
+{
+    list<pair<int, int>> result_path;
+    if (path_searched)
+    {
+        pair<int, int> cur_cell = maze.get_end();
+        while (cur_cell != maze.get_start())
+        {
+            result_path.push_front(cur_cell);
+            cur_cell = list_closed[cur_cell];
+        }
+        result_path.push_front(cur_cell);
+    }
+    maze.set_path(result_path);
 }
 
 bool operator<(const pair<int, AdjCells>& lhs, const pair<int, AdjCells>& rhs)

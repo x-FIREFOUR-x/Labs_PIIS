@@ -145,12 +145,14 @@
     <ClCompile Include="lab1.cpp" />
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="MazeReaderWriter.cpp" />
+    <ClCompile Include="WaveAlgo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdjCells.h" />
     <ClInclude Include="AStar.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="MazeReaderWriter.h" />
+    <ClInclude Include="WaveAlgo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

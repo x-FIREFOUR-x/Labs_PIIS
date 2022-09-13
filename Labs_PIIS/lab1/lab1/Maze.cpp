@@ -78,3 +78,13 @@ int Maze::get_value_cell(int line, int column)
     return maze[line][column];
 }
 
+void Maze::set_value_cell(pair<int, int> cell, int value)
+{
+    maze[cell.first][cell.second] = value;
+}
+
+void Maze::set_value_cell(int line, int column, int value)
+{
+    maze[line][column] = value;
+}
+

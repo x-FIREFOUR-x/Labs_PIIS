@@ -5,7 +5,6 @@
 
 #include <vector>
 #include <list>
-#include<stack>
 #include<queue>
 #include<map>
 #include <iostream>
@@ -24,6 +23,8 @@ private:
 	int calculate_heuristics(pair<int, int> cell1, pair<int, int> cell2);
 	void add_adjacent_cells(pair<int, int> cell, Maze& maze);
 	void add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_cell, Maze& maze, int g);
+
+	void get_path(bool path_searched, Maze& maze);
 
 	friend bool operator<(const pair<int, AdjCells>&, const pair<int, AdjCells>&);
 	
