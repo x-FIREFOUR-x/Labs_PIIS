@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <iomanip>  
+#include <exception>
 
 Maze MazeReaderWriter::read_maze_with_file(string filename)
 {
@@ -39,6 +40,10 @@ Maze MazeReaderWriter::read_maze_with_file(string filename)
         file.close();
 
         return Maze(maze, start, end);
+    }
+    else
+    {
+        throw exception("Not exist file: ");
     }
 }
 
