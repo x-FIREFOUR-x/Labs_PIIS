@@ -14,14 +14,16 @@ bool AStar::search_path(Maze& maze)
     {
         AdjCells adj_cells = list_opened.top().second;
         list_opened.pop();
+
         add_adjacent_cells(adj_cells.cell, maze);
+
         list_closed[adj_cells.cell] = adj_cells.previous_cell;
 
         if (adj_cells.cell == maze.get_end())
             path_searched = true;
     }
 
-    get_path(path_searched, maze);
+    build_path(path_searched, maze);
 
     return path_searched;
 }
@@ -72,7 +74,7 @@ void AStar::add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_cell,
     }
 }
 
-void AStar::get_path(bool path_searched, Maze& maze)
+void AStar::build_path(bool path_searched, Maze& maze)
 {
     list<pair<int, int>> result_path;
     if (path_searched)

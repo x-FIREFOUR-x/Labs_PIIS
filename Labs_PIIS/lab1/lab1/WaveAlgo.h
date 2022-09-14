@@ -22,7 +22,7 @@ public:
 private:
 	void add_adjacent_cells(pair<int, int> cell, Maze& maze);
 	void add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_cell, Maze& maze);
-	void get_path(bool path_searched, Maze& maze);
+	void build_path(bool path_searched, Maze& maze);
 
 	void clean_maze(Maze& maze);
 };

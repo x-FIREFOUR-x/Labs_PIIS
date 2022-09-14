@@ -19,7 +19,6 @@ public:
 
 	pair<int,int> get_start();
 	pair<int, int> get_end();
-
 	void set_start(const pair<int, int> start);
 	void set_end(const pair<int, int> end);
 
@@ -32,6 +31,7 @@ public:
 	int get_hight_maze();
 
 	bool is_cell(pair<int, int> cell);
+
 	int get_value_cell(pair<int, int> cell);
 	int get_value_cell(int line, int column);
 	void set_value_cell(pair<int, int> cell, int value);

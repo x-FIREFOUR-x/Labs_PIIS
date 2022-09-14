@@ -12,17 +12,17 @@ int main()
     MazeReaderWriter reader;
     Maze maze = reader.read_maze_with_file("Maze3.txt");
 
-    /*
-    AStar algo;
-    algo.search_path(maze);
+    
+    AStar algo_astar;
+    algo_astar.search_path(maze);
     list<pair<int, int>> res = maze.get_path();
 
     reader.write_console_maze_and_path(maze);
-    */
     
-    WaveAlgo algo;
-    algo.search_path(maze);
-    list<pair<int, int>> res = maze.get_path();
+    
+    WaveAlgo algo_wave;
+    algo_wave.search_path(maze);
+    res = maze.get_path();
 
     reader.write_console_maze_and_path(maze);
     
