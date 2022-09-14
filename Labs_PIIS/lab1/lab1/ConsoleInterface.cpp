@@ -20,6 +20,8 @@ void ConsoleInterface::run()
         try
         {
             maze = reader_writer.read_maze_with_file(namefile);
+            
+            reader_writer.write_console_maze(maze);
 
             int operation = 0;
             cout << " Input 1 (Algorithm A*), 2 (Algorithm Li, Wave), 3 (two algo), 4(change file), other (exist): ";

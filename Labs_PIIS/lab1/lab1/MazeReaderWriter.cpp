@@ -109,3 +109,44 @@ void MazeReaderWriter::write_console_maze_and_path(Maze& maze)
 
     cout << "-------------------------" << endl << endl;
 }
+
+void MazeReaderWriter::write_console_maze(Maze& maze)
+{
+    vector<vector<string>> maze_output;
+    for (int i = 0; i < maze.get_hight_maze(); i++)
+    {
+        vector<string> line;
+        for (int j = 0; j < maze.get_width_maze(); j++)
+        {
+            if (maze.get_value_cell(i, j) == 0)
+            {
+                line.push_back("#");
+            }
+            else if (maze.get_value_cell(i, j) == -1)
+            {
+                line.push_back("0");
+            }
+            else
+            {
+                line.push_back(to_string(maze.get_value_cell(i, j)));
+            }
+        }
+        maze_output.push_back(line);
+    }
+
+    maze_output[maze.get_start().first][maze.get_start().second] = "S";
+    maze_output[maze.get_end().first][maze.get_end().second] = "E";
+
+    cout << "----Input--Maze-----------" << endl;
+
+    for (int i = 0; i < maze_output.size(); i++)
+    {
+        for (int j = 0; j < maze_output[i].size(); j++)
+        {
+            cout << setw(3) << maze_output[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    cout << "-------------------------" << endl << endl;
+}
