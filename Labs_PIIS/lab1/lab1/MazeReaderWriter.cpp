@@ -73,6 +73,7 @@ void MazeReaderWriter::write_console_maze_and_path(Maze& maze)
 
     list<pair<int, int>> path = maze.get_path();
 
+    
     int code = 65;
     for (auto elem : path)
     {
@@ -83,7 +84,7 @@ void MazeReaderWriter::write_console_maze_and_path(Maze& maze)
         if (code > 90)
             code = 65;
     }
-
+    
 
     cout << "----------Maze-----------" << endl;
 

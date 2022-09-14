@@ -3,20 +3,34 @@
 bool WaveAlgo::search_path(Maze& maze)
 {
     clean_maze(maze);
-    list_opened.push(AdjCells(maze.get_start(), maze.get_start()));
+
+    bool path_searched = false;
+
+
+    add_adjacent_cells(maze.get_start(), maze);
 
     int k = 1;
     maze.set_value_cell(maze.get_start(), k);
+    list_closed[maze.get_start()] = maze.get_start();
 
-    bool path_searched = false;
+    if (maze.get_start() == maze.get_end())
+        path_searched = true;
+
+    
     while (!path_searched && !list_opened.empty())
     {
         AdjCells adj_cells = list_opened.front();
         list_opened.pop();
 
-        add_adjacent_cells(adj_cells.cell, maze);
+        if (list_closed.find(adj_cells.cell) == list_closed.end())
+        {
+            add_adjacent_cells(adj_cells.cell, maze);
 
-        list_closed[adj_cells.cell] = adj_cells.previous_cell;
+            k = maze.get_value_cell(adj_cells.previous_cell) + 1;
+            maze.set_value_cell(adj_cells.cell, k);
+
+            list_closed[adj_cells.cell] = adj_cells.previous_cell;
+        }
 
         if (adj_cells.cell == maze.get_end())
             path_searched = true;
@@ -40,6 +54,19 @@ void WaveAlgo::add_adjacent_cells(pair<int, int> cell, Maze& maze)
 
     new_cell = make_pair<int, int>((int)cell.first - 1, (int)cell.second);
     add_adjacent_cell(cell, new_cell, maze);
+
+
+    new_cell = make_pair<int, int>((int)cell.first + 1, (int)cell.second + 1);
+    add_adjacent_cell(cell, new_cell, maze);
+
+    new_cell = make_pair<int, int>((int)cell.first - 1, (int)cell.second - 1);
+    add_adjacent_cell(cell, new_cell, maze);
+
+    new_cell = make_pair<int, int>((int)cell.first + 1, (int)cell.second - 1);
+    add_adjacent_cell(cell, new_cell, maze);
+
+    new_cell = make_pair<int, int>((int)cell.first - 1, (int)cell.second + 1);
+    add_adjacent_cell(cell, new_cell, maze);
 }
 
 void WaveAlgo::add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_cell, Maze& maze)
@@ -47,8 +74,7 @@ void WaveAlgo::add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_ce
     if (maze.is_cell(new_cell) && list_closed.find(new_cell) == list_closed.end())
     {
         list_opened.push(AdjCells(new_cell, prev_cell));
-        int k = maze.get_value_cell(prev_cell) + 1;
-        maze.set_value_cell(new_cell, k);
+       
     }
 }
 
