@@ -4,6 +4,7 @@ void ConsoleInterface::run()
 {
     bool is_run = true;
     bool file_input = false;
+    bool output_maze = false;
     string namefile;
 
     while (is_run)
@@ -13,6 +14,7 @@ void ConsoleInterface::run()
             cout << " -Input name file: ";
             cin >> namefile;
             file_input = true;
+            output_maze = true;
         }
 
         MazeReaderWriter reader_writer;
@@ -21,38 +23,62 @@ void ConsoleInterface::run()
         {
             maze = reader_writer.read_maze_with_file(namefile);
             
-            reader_writer.write_console_maze(maze);
-
+            if (output_maze)
+            {
+                reader_writer.write_console_maze(maze);
+                output_maze = false;
+            }
+                
             int operation = 0;
-            cout << " Input 1 (Algorithm A*), 2 (Algorithm Li, Wave), 3 (two algo), 4(change file), other (exist): ";
+            cout << "*Input 1 (Algorithm A*), 2 (Algorithm Li, Wave), 3 (two algo), 4(change file), other (exist): ";
             cin >> operation;
 
             AStar algo_astar;
             WaveAlgo algo_wave;
+            bool success;
 
             switch (operation)
             {
             case 1:
                 cout << endl << "Algorithm A*:" << endl;
-                algo_astar.search_path(maze);
-                reader_writer.write_console_maze_and_path(maze);
+                success = algo_astar.search_path(maze);
+
+                if (success)
+                    reader_writer.write_console_maze_and_path(maze);
+                else
+                    cout << " !The path is missing" << endl;
+
                 break;
 
             case 2:
                 cout << endl << "Algorithm Li or Wave:" << endl;
-                algo_wave.search_path(maze);
-                reader_writer.write_console_maze_and_path(maze);
+                success = algo_wave.search_path(maze);
+
+                if (success)
+                    reader_writer.write_console_maze_and_path(maze);
+                else
+                    cout << " !The path is missing" << endl;
+
                 break;
 
             case 3:
                 cout << endl << "Algorithm A*:" << endl;
-                algo_astar.search_path(maze);
-                reader_writer.write_console_maze_and_path(maze);
+                success = algo_astar.search_path(maze);
+
+                if (success)
+                    reader_writer.write_console_maze_and_path(maze);
+                else
+                    cout << " !The path is missing" << endl;
 
                 cout << "Algorithm Li or Wave:" << endl;
                 maze = reader_writer.read_maze_with_file(namefile);
-                algo_wave.search_path(maze);
-                reader_writer.write_console_maze_and_path(maze);
+                success = algo_wave.search_path(maze);
+
+                if (success)
+                    reader_writer.write_console_maze_and_path(maze);
+                else
+                    cout << " !The path is missing" << endl;
+
                 break;
 
             case 4:
