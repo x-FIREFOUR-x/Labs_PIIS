@@ -6,6 +6,7 @@
 
 #include "Maze.h"
 #include "Player.h"
+#include "AbstractEnemy.h"
 
 using namespace std;
 class ReaderWriter
@@ -16,6 +17,6 @@ private:
 public:
 	Maze read_maze_with_file(string filename);
 
-	void write_console_maze(const Maze& maze, const Player& player);
+	void write_console_maze(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys);
 };
 

@@ -54,6 +54,18 @@
     <ClCompile Include="AStar.cpp">
       <Filter>Исходные файлы\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="AbstractEnemy.cpp">
+      <Filter>Исходные файлы\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRandom.cpp">
+      <Filter>Исходные файлы\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAStar.cpp">
+      <Filter>Исходные файлы\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="CreaterEnemy.cpp">
+      <Filter>Исходные файлы\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ReaderWriter.h">
@@ -72,6 +84,18 @@
       <Filter>Файлы заголовков\Maze</Filter>
     </ClInclude>
     <ClInclude Include="AStar.h">
+      <Filter>Файлы заголовков\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractEnemy.h">
+      <Filter>Файлы заголовков\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRandom.h">
+      <Filter>Файлы заголовков\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyAStar.h">
+      <Filter>Файлы заголовков\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="CreaterEnemy.h">
       <Filter>Файлы заголовков\Enemy</Filter>
     </ClInclude>
   </ItemGroup>

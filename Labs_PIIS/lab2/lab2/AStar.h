@@ -20,15 +20,15 @@ private:
 	pair<int, int> end;
 
 public:
-	bool search_path(Maze& maze, pair<int,int> _start, pair<int,int> _end);
+	bool search_path(const Maze& maze, pair<int,int> _start, pair<int,int> _end);
 	pair<int, int> coordinate_move();
 
 private:
 	int calculate_heuristics(pair<int, int> cell1, pair<int, int> cell2);
-	void add_adjacent_cells(pair<int, int> cell, Maze& maze);
-	void add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_cell, Maze& maze, int g);
+	void add_adjacent_cells(pair<int, int> cell, const Maze& maze);
+	void add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_cell, const Maze& maze, int g);
 
-	void build_path(bool path_searched, Maze& maze);
+	void build_path(bool path_searched);
 
 	friend bool operator<(const pair<int, AdjCells>&, const pair<int, AdjCells>&);
 	

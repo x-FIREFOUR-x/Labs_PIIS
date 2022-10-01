@@ -4,6 +4,8 @@
 #include <iomanip>  
 #include <exception>
 
+#include "EnemyRandom.h"
+
 Maze ReaderWriter::read_maze_with_file(string filename)
 {
     ifstream file;
@@ -48,7 +50,7 @@ Maze ReaderWriter::read_maze_with_file(string filename)
 }
 
 
-void ReaderWriter::write_console_maze(const Maze& maze, const Player& player)
+void ReaderWriter::write_console_maze(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys)
 {
     vector<vector<string>> maze_output;
     for (int i = 0; i < maze.get_hight_maze(); i++)
@@ -72,6 +74,11 @@ void ReaderWriter::write_console_maze(const Maze& maze, const Player& player)
     maze_output[maze.get_end().first][maze.get_end().second] = "E";
     maze_output[player.get_line()][player.get_column()] = "@";
 
+    for (int i = 0; i < enemys.size(); i++)
+    {
+        maze_output[enemys[i]->get_line()][enemys[i]->get_column()] = enemys[i]->symbol_view();
+    }
+
     cout << "----Input--Maze-----------" << endl;
 
     for (int i = 0; i < maze_output.size(); i++)
@@ -87,5 +94,5 @@ void ReaderWriter::write_console_maze(const Maze& maze, const Player& player)
         cout << endl;
     }
 
-    cout << "-------------------------" << endl << endl;
+    cout << "-------------------------" << endl;
 }

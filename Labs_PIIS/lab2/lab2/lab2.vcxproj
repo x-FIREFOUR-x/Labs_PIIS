@@ -139,18 +139,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractEnemy.cpp" />
     <ClCompile Include="AdjCells.cpp" />
     <ClCompile Include="AStar.cpp" />
     <ClCompile Include="ConsoleInterface.cpp" />
+    <ClCompile Include="EnemyAStar.cpp" />
+    <ClCompile Include="CreaterEnemy.cpp" />
+    <ClCompile Include="EnemyRandom.cpp" />
     <ClCompile Include="lab2.cpp" />
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="ReaderWriter.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractEnemy.h" />
     <ClInclude Include="AdjCells.h" />
     <ClInclude Include="AStar.h" />
     <ClInclude Include="ConsoleInterface.h" />
+    <ClInclude Include="EnemyAStar.h" />
+    <ClInclude Include="CreaterEnemy.h" />
+    <ClInclude Include="EnemyRandom.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="ReaderWriter.h" />
     <ClInclude Include="Player.h" />

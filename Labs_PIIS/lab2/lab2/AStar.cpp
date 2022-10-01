@@ -1,6 +1,6 @@
 #include "AStar.h"
 
-bool AStar::search_path(Maze& maze, pair<int, int> _start, pair<int, int> _end)
+bool AStar::search_path(const Maze& maze, pair<int, int> _start, pair<int, int> _end)
 {
     this->start = _start;
     this->end = _end;
@@ -25,7 +25,7 @@ bool AStar::search_path(Maze& maze, pair<int, int> _start, pair<int, int> _end)
             path_searched = true;
     }
 
-    build_path(path_searched, maze);
+    build_path(path_searched);
 
     return path_searched;
 }
@@ -47,7 +47,7 @@ int AStar::calculate_heuristics(pair<int, int> cell1, pair<int, int> cell2)
     return h;
 }
 
-void AStar::add_adjacent_cells(pair<int, int> cell, Maze& maze)
+void AStar::add_adjacent_cells(pair<int, int> cell,const Maze& maze)
 {
     pair<int, int> new_cell = make_pair<int, int>((int)cell.first, (int)cell.second + 1);
     add_adjacent_cell(cell, new_cell, maze, 10);
@@ -76,7 +76,7 @@ void AStar::add_adjacent_cells(pair<int, int> cell, Maze& maze)
     */
 }
 
-void AStar::add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_cell, Maze& maze, int g)
+void AStar::add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_cell, const Maze& maze, int g)
 {
     if (maze.is_cell(new_cell) && list_closed.find(new_cell) == list_closed.end())
     {
@@ -88,7 +88,7 @@ void AStar::add_adjacent_cell(pair<int, int> prev_cell, pair<int, int> new_cell,
     }
 }
 
-void AStar::build_path(bool path_searched, Maze& maze)
+void AStar::build_path(bool path_searched)
 {
     if (path_searched)
     {
