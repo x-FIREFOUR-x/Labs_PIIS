@@ -139,7 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdjCells.cpp" />
+    <ClCompile Include="ConsoleInterface.cpp" />
     <ClCompile Include="lab2.cpp" />
+    <ClCompile Include="Maze.cpp" />
+    <ClCompile Include="MazeReaderWriter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AdjCells.h" />
+    <ClInclude Include="ConsoleInterface.h" />
+    <ClInclude Include="Maze.h" />
+    <ClInclude Include="MazeReaderWriter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
