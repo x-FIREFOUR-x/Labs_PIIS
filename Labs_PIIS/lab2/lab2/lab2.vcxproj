@@ -143,13 +143,15 @@
     <ClCompile Include="ConsoleInterface.cpp" />
     <ClCompile Include="lab2.cpp" />
     <ClCompile Include="Maze.cpp" />
-    <ClCompile Include="MazeReaderWriter.cpp" />
+    <ClCompile Include="ReaderWriter.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdjCells.h" />
     <ClInclude Include="ConsoleInterface.h" />
     <ClInclude Include="Maze.h" />
-    <ClInclude Include="MazeReaderWriter.h" />
+    <ClInclude Include="ReaderWriter.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

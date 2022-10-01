@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Maze.h"
-#include "MazeReaderWriter.h"
+#include "ReaderWriter.h"
+#include "Player.h"
 
 #include <string>;
 

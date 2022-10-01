@@ -17,15 +17,17 @@ void ConsoleInterface::run()
             output_maze = true;
         }
 
-        MazeReaderWriter reader_writer;
+        ReaderWriter reader_writer;
         Maze maze;
+        
         try
         {
             maze = reader_writer.read_maze_with_file(namefile);
+            Player player(maze);
             
             if (output_maze)
             {
-                reader_writer.write_console_maze(maze);
+                reader_writer.write_console_maze(maze, player);
                 output_maze = false;
             }
                 

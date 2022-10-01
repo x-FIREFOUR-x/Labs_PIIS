@@ -5,9 +5,10 @@
 #include <iostream>
 
 #include "Maze.h"
+#include "Player.h"
 
 using namespace std;
-class MazeReaderWriter
+class ReaderWriter
 {
 private:
 	string folder = "FilesMaze";
@@ -15,8 +16,6 @@ private:
 public:
 	Maze read_maze_with_file(string filename);
 
-	void write_console_maze_and_path(Maze& maze);
-
-	void write_console_maze(Maze& maze);
+	void write_console_maze(const Maze& maze, const Player& player);
 };
 

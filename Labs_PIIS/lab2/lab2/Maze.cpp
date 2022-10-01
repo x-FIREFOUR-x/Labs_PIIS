@@ -11,12 +11,12 @@ Maze::Maze(const vector<vector<int>>& maze, const pair<int, int> start, const pa
     this->end = end;
 }
 
-pair<int, int> Maze::get_start()
+pair<int, int> Maze::get_start() const
 {
     return start;
 }
 
-pair<int, int> Maze::get_end()
+pair<int, int> Maze::get_end() const
 {
     return end;
 }
@@ -36,27 +36,27 @@ void Maze::set_path(list<pair<int, int>>& path)
     this->path = path;
 }
 
-list<pair<int, int>> Maze::get_path()
+list<pair<int, int>> Maze::get_path() const
 {
     return path;
 }
 
-vector<vector<int>> Maze::get_maze()
+vector<vector<int>> Maze::get_maze() const
 {
     return maze;
 }
 
-int Maze::get_width_maze()
+int Maze::get_width_maze() const
 {
     return maze[0].size();
 }
 
-int Maze::get_hight_maze()
+int Maze::get_hight_maze() const
 {
     return maze.size();
 }
 
-bool Maze::is_cell(pair<int, int> cell)
+bool Maze::is_cell(pair<int, int> cell) const
 {
     if (cell.first < 0 || cell.first > maze.size() - 1)
         return false;
@@ -68,12 +68,28 @@ bool Maze::is_cell(pair<int, int> cell)
     return true;
 }
 
-int Maze::get_value_cell(pair<int, int> cell)
+bool Maze::is_start(pair<int, int> cell) const
+{
+    if (cell == start)
+        return true;
+    else
+        return false;
+}
+
+bool Maze::is_end(pair<int, int> cell) const
+{
+    if (cell == end)
+        return true;
+    else
+        return false;
+}
+
+int Maze::get_value_cell(pair<int, int> cell) const
 {
     return maze[cell.first][cell.second];
 }
 
-int Maze::get_value_cell(int line, int column)
+int Maze::get_value_cell(int line, int column) const
 {
     return maze[line][column];
 }

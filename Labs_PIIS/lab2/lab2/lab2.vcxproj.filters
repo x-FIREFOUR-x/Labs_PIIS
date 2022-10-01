@@ -13,36 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\Player">
+      <UniqueIdentifier>{4773cc34-62a0-4b7c-a060-2c32755ec4e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Player">
+      <UniqueIdentifier>{90f6e411-d141-44ba-81f5-224eb5dc02d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Maze">
+      <UniqueIdentifier>{e3b26fa0-5608-41dd-8ea2-94faee75e1fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Maze">
+      <UniqueIdentifier>{b43c27ff-8c45-448e-a78d-566e621ed7e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lab2.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="AdjCells.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Maze.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="MazeReaderWriter.cpp">
+    <ClCompile Include="ReaderWriter.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ConsoleInterface.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Исходные файлы\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="AdjCells.cpp">
+      <Filter>Исходные файлы\Maze</Filter>
+    </ClCompile>
+    <ClCompile Include="Maze.cpp">
+      <Filter>Исходные файлы\Maze</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AdjCells.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Maze.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="MazeReaderWriter.h">
+    <ClInclude Include="ReaderWriter.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ConsoleInterface.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Файлы заголовков\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Maze.h">
+      <Filter>Файлы заголовков\Maze</Filter>
+    </ClInclude>
+    <ClInclude Include="AdjCells.h">
+      <Filter>Файлы заголовков\Maze</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
