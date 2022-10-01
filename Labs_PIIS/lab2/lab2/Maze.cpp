@@ -7,13 +7,7 @@ Maze::Maze()
 Maze::Maze(const vector<vector<int>>& maze, const pair<int, int> start, const pair<int, int> end)
 {
     this->maze = maze;
-    this->start = start;
     this->end = end;
-}
-
-pair<int, int> Maze::get_start() const
-{
-    return start;
 }
 
 pair<int, int> Maze::get_end() const
@@ -21,24 +15,9 @@ pair<int, int> Maze::get_end() const
     return end;
 }
 
-void Maze::set_start(const pair<int, int> start)
-{
-    this->start = start;
-}
-
 void Maze::set_end(const pair<int, int> end)
 {
     this->end = end;
-}
-
-void Maze::set_path(list<pair<int, int>>& path)
-{
-    this->path = path;
-}
-
-list<pair<int, int>> Maze::get_path() const
-{
-    return path;
 }
 
 vector<vector<int>> Maze::get_maze() const
@@ -68,13 +47,6 @@ bool Maze::is_cell(pair<int, int> cell) const
     return true;
 }
 
-bool Maze::is_start(pair<int, int> cell) const
-{
-    if (cell == start)
-        return true;
-    else
-        return false;
-}
 
 bool Maze::is_end(pair<int, int> cell) const
 {

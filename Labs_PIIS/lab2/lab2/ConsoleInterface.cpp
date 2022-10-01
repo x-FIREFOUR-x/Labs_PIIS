@@ -30,7 +30,7 @@ void ConsoleInterface::run()
                 reader_writer.write_console_maze(maze, player);
                 output_maze = false;
             }
-                
+
             int operation = 0;
             cout << "*Input 1 (Algorithm A*), 2 (Algorithm Li, Wave), 3 (two algo), 4(change file), other (exist): ";
             cin >> operation;

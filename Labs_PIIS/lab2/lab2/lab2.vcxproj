@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AdjCells.cpp" />
+    <ClCompile Include="AStar.cpp" />
     <ClCompile Include="ConsoleInterface.cpp" />
     <ClCompile Include="lab2.cpp" />
     <ClCompile Include="Maze.cpp" />
@@ -148,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdjCells.h" />
+    <ClInclude Include="AStar.h" />
     <ClInclude Include="ConsoleInterface.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="ReaderWriter.h" />

@@ -25,6 +25,12 @@
     <Filter Include="Файлы заголовков\Maze">
       <UniqueIdentifier>{b43c27ff-8c45-448e-a78d-566e621ed7e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Enemy">
+      <UniqueIdentifier>{ca7fbb5a-93da-4498-8a29-f59e0e9d47a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Enemy">
+      <UniqueIdentifier>{08d0639b-ad3f-46bd-97e2-022df1fc03d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lab2.cpp">
@@ -45,6 +51,9 @@
     <ClCompile Include="Maze.cpp">
       <Filter>Исходные файлы\Maze</Filter>
     </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>Исходные файлы\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ReaderWriter.h">
@@ -61,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="AdjCells.h">
       <Filter>Файлы заголовков\Maze</Filter>
+    </ClInclude>
+    <ClInclude Include="AStar.h">
+      <Filter>Файлы заголовков\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

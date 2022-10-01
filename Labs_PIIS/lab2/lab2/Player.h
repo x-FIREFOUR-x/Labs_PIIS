@@ -15,5 +15,6 @@ public:
 
 	int get_line() const;
 	int get_column() const;
+	pair<int,int> get_coordinates() const;
 };
 

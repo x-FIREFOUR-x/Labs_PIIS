@@ -30,3 +30,8 @@ int Player::get_column() const
 {
 	return this->column;
 }
+
+pair<int, int> Player::get_coordinates() const
+{
+	return make_pair(line, column);
+}
