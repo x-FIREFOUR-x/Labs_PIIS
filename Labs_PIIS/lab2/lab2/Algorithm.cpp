@@ -1,6 +1,6 @@
 #include "Algorithm.h"
 
-vector<Player> Algorithm::get_states_player(const Maze& maze, const Player& player)
+vector<Player> Algorithm::get_states_player(const Maze& maze, const Player& player) const
 {
     vector<Player> states;
 
@@ -19,7 +19,7 @@ vector<Player> Algorithm::get_states_player(const Maze& maze, const Player& play
     return states;
 }
 
-vector<vector<AbstractEnemy*>> Algorithm::get_states_enemys(const Maze& maze, const vector<AbstractEnemy*>& enemys)
+vector<vector<AbstractEnemy*>> Algorithm::get_states_enemys(const Maze& maze, const vector<AbstractEnemy*>& enemys) const
 {
     vector<vector<AbstractEnemy*>> possible_state_enemys;
     for (int i = 0; i < enemys.size(); i++)
@@ -43,7 +43,7 @@ vector<vector<AbstractEnemy*>> Algorithm::get_states_enemys(const Maze& maze, co
     }
 }
 
-vector<AbstractEnemy*> Algorithm::get_states_enemy(const Maze& maze, const AbstractEnemy* enemy)
+vector<AbstractEnemy*> Algorithm::get_states_enemy(const Maze& maze, const AbstractEnemy* enemy) const
 {
     vector<AbstractEnemy*> states;
 
@@ -63,7 +63,7 @@ vector<AbstractEnemy*> Algorithm::get_states_enemy(const Maze& maze, const Abstr
 
 }
 
-vector<vector<AbstractEnemy*>> Algorithm::combine_states_two_enemys(const vector<vector<AbstractEnemy*>>& first, const vector<AbstractEnemy*>& second)
+vector<vector<AbstractEnemy*>> Algorithm::combine_states_two_enemys(const vector<vector<AbstractEnemy*>>& first, const vector<AbstractEnemy*>& second) const
 {
     vector<vector<AbstractEnemy*>> result;
 
@@ -83,7 +83,7 @@ vector<vector<AbstractEnemy*>> Algorithm::combine_states_two_enemys(const vector
     return result;
 }
 
-vector<vector<AbstractEnemy*>> Algorithm::combine_states_two_enemys(const vector<AbstractEnemy*>& first, const vector<AbstractEnemy*>& second)
+vector<vector<AbstractEnemy*>> Algorithm::combine_states_two_enemys(const vector<AbstractEnemy*>& first, const vector<AbstractEnemy*>& second) const
 {
     vector<vector<AbstractEnemy*>> result;
 
@@ -104,7 +104,7 @@ vector<vector<AbstractEnemy*>> Algorithm::combine_states_two_enemys(const vector
     return result;
 }
 
-bool Algorithm::is_unique_state(const vector<AbstractEnemy*>& state_enemys)
+bool Algorithm::is_unique_state(const vector<AbstractEnemy*>& state_enemys) const
 {
     bool is_unique = true;
     for (int i = 0; i < state_enemys.size() && is_unique; i++)

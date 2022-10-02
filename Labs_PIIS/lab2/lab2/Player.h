@@ -7,8 +7,8 @@
 using namespace std;
 class Player
 {
-	int column;
 	int line;
+	int column;
 
 public:
 	Player(const Maze& maze);
