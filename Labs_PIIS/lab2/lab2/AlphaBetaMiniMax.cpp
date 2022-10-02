@@ -8,6 +8,9 @@ pair<int, int> AlphaBetaMiniMax::coordinate_move(const Maze& maze, const Player&
 {
     pair<int, pair<int, int>> value_move = minimax(0, true, MIN_VALUE, MAX_VALUE, maze, player, enemys);
 
+    if (value_move.first == MIN_VALUE)
+        return player.get_coordinates();
+
     return value_move.second;
 }
 
@@ -82,7 +85,7 @@ int AlphaBetaMiniMax::calculate_value(const Maze& maze, const Player& player, co
     int min_distance_player_enemy = *min_element(distances_player_enemys.begin(), distances_player_enemys.end());
     int distance_player_finish = algoAStar.search_path(maze, player.get_coordinates(), maze.get_end());
     
-    int value = 2 * min_distance_player_enemy - distance_player_finish;
+    int value = 3 * min_distance_player_enemy - 2 * distance_player_finish;
 
     return value;
 }
