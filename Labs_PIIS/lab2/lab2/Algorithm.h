@@ -3,8 +3,8 @@
 #include <vector>
 
 #include "Maze.h"
-#include "Player.h"
-#include "AbstractEnemy.h"
+class AbstractEnemy;
+class Player;
 
 class Algorithm
 {

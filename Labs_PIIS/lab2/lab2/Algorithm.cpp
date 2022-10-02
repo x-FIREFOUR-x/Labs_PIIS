@@ -1,5 +1,8 @@
 #include "Algorithm.h"
 
+#include "Player.h"
+#include "AbstractEnemy.h"
+
 vector<Player> Algorithm::get_states_player(const Maze& maze, const Player& player) const
 {
     vector<Player> states;

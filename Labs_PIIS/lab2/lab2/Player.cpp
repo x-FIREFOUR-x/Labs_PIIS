@@ -41,3 +41,12 @@ pair<int, int> Player::get_coordinates() const
 {
 	return make_pair(line, column);
 }
+
+void Player::move(const Algorithm* algorithm, const Maze& maze, const vector<AbstractEnemy*> enemys)
+{
+	pair<int, int> coordinate_move = algorithm->coordinate_move(maze, *this, enemys);
+
+	this->line = coordinate_move.first;
+	this->column = coordinate_move.second;
+}
+

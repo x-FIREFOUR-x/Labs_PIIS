@@ -1,6 +1,8 @@
 #include "ConsoleInterface.h"
 
 #include "AlphaBetaMiniMax.h"
+#include <thread>
+#include <chrono>
 
 void ConsoleInterface::run()
 {
@@ -21,21 +23,22 @@ void ConsoleInterface::run()
     }
 
     Player player(maze);
-    vector<AbstractEnemy*> enemys = CreaterEnemy::createEnemys(2, 2, maze, player);
+    vector<AbstractEnemy*> enemys = CreaterEnemy::createEnemys(0, 4, maze, player);
 
     bool is_exit = false;
     while (!is_exit)
     {
         reader_writer.write_console_maze(maze, player, enemys);
-        /*
+
+        Algorithm* algo = (Algorithm*) new AlphaBetaMiniMax();
+        player.move(algo, maze, enemys);
+
         for (int i = 0; i < enemys.size(); i++)
         {
             enemys[i]->move(maze, player);
         }
-        */
 
-        AlphaBetaMiniMax algo;
-        algo.coordinate_move(maze, player, enemys);
+        //std::this_thread::sleep_for(2s);
 
         string exit = "";
         cin >> exit;

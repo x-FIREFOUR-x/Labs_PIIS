@@ -1,6 +1,8 @@
 #include "AlphaBetaMiniMax.h"
 
 #include "AStar.h"
+#include "Player.h"
+#include "AbstractEnemy.h"
 
 pair<int, int> AlphaBetaMiniMax::coordinate_move(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys) const
 {

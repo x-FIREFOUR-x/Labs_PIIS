@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Maze.h"
 #include "Player.h"
 
