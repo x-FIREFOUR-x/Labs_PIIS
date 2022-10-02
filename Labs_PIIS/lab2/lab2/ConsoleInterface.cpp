@@ -37,12 +37,14 @@ void ConsoleInterface::run()
         if (exit == "e")
             is_exit = true;
 
+        Player old_player = player;
+
         Algorithm* algo = (Algorithm*) new AlphaBetaMiniMax();
         player.move(algo, maze, enemys);
 
         for (int i = 0; i < enemys.size(); i++)
         {
-            enemys[i]->move(maze, player, enemys, i);
+            enemys[i]->move(maze, old_player, enemys, i);
         }
 
         //std::this_thread::sleep_for(2s);

@@ -81,7 +81,6 @@ int AlphaBetaMiniMax::calculate_value(const Maze& maze, const Player& player, co
         distances_player_enemys.push_back(algoAStar.distance());
     }
     
-
     int min_distance_player_enemy = *min_element(distances_player_enemys.begin(), distances_player_enemys.end());
     int distance_player_finish = algoAStar.search_path(maze, player.get_coordinates(), maze.get_end());
     
