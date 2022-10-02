@@ -40,6 +40,11 @@ pair<int, int> AStar::coordinate_move()
     return coordinates_move;
 }
 
+int AStar::distance()
+{
+    return path.size();
+}
+
 
 int AStar::calculate_heuristics(pair<int, int> cell1, pair<int, int> cell2)
 {

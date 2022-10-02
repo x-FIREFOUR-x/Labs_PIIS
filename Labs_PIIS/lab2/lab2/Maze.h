@@ -24,6 +24,7 @@ public:
 	int get_hight_maze() const;
 
 	bool is_cell(pair<int, int> cell) const;
+	bool is_cell(const int line, const int column) const;
 	bool is_end(pair<int, int> cell) const;
 
 	int get_value_cell(pair<int, int> cell) const;

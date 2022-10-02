@@ -66,6 +66,12 @@
     <ClCompile Include="CreaterEnemy.cpp">
       <Filter>Исходные файлы\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="AlphaBetaMiniMax.cpp">
+      <Filter>Исходные файлы\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithm.cpp">
+      <Filter>Исходные файлы\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ReaderWriter.h">
@@ -97,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="CreaterEnemy.h">
       <Filter>Файлы заголовков\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="AlphaBetaMiniMax.h">
+      <Filter>Файлы заголовков\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Algorithm.h">
+      <Filter>Файлы заголовков\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,5 +1,7 @@
 #include "ConsoleInterface.h"
 
+#include "AlphaBetaMiniMax.h"
+
 void ConsoleInterface::run()
 {
     string namefile;
@@ -19,16 +21,21 @@ void ConsoleInterface::run()
     }
 
     Player player(maze);
-    vector<AbstractEnemy*> enemys = CreaterEnemy::createEnemys(1, 1, maze, player);
+    vector<AbstractEnemy*> enemys = CreaterEnemy::createEnemys(2, 2, maze, player);
 
     bool is_exit = false;
     while (!is_exit)
     {
         reader_writer.write_console_maze(maze, player, enemys);
+        /*
         for (int i = 0; i < enemys.size(); i++)
         {
             enemys[i]->move(maze, player);
         }
+        */
+
+        AlphaBetaMiniMax algo;
+        algo.coordinate_move(maze, player, enemys);
 
         string exit = "";
         cin >> exit;

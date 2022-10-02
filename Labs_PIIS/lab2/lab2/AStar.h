@@ -22,6 +22,7 @@ private:
 public:
 	bool search_path(const Maze& maze, pair<int,int> _start, pair<int,int> _end);
 	pair<int, int> coordinate_move();
+	int distance();
 
 private:
 	int calculate_heuristics(pair<int, int> cell1, pair<int, int> cell2);

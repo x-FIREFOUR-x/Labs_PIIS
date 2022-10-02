@@ -6,6 +6,12 @@ AbstractEnemy::AbstractEnemy(pair<int, int> coordinates)
 	this->column = coordinates.second;
 }
 
+AbstractEnemy::AbstractEnemy(int line, int column)
+{
+	this->line = line;
+	this->column = column;
+}
+
 int AbstractEnemy::get_line() const
 {
 	return this->line;

@@ -47,6 +47,18 @@ bool Maze::is_cell(pair<int, int> cell) const
     return true;
 }
 
+bool Maze::is_cell(const int line, const int column) const
+{
+    if (line < 0 || line > maze.size() - 1)
+        return false;
+    if (column < 0 || column > maze[0].size() - 1)
+        return false;
+    if (maze[line][column] == 0)
+        return false;
+
+    return true;
+}
+
 
 bool Maze::is_end(pair<int, int> cell) const
 {

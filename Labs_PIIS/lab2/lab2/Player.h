@@ -12,9 +12,11 @@ class Player
 
 public:
 	Player(const Maze& maze);
+	Player(int line, int column);	
 
 	int get_line() const;
 	int get_column() const;
 	pair<int,int> get_coordinates() const;
+
 };
 

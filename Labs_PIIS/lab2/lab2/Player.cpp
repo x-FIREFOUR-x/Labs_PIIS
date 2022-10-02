@@ -21,6 +21,12 @@ Player::Player(const Maze& maze)
 	this->column = column;
 }
 
+Player::Player(int line, int column)
+{
+	this->line = line;
+	this->column = column;
+}
+
 int Player::get_line() const
 {
 	return this->line;

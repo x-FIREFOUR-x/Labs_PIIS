@@ -87,7 +87,7 @@ void ReaderWriter::write_console_maze(const Maze& maze, const Player& player, co
         for (int j = 0; j < maze_output[i].size(); j++)
         {
             if (j < maze_output[i].size() - 1)
-                cout << maze_output[i][j] << " ";
+                cout << maze_output[i][j];
             else
                 cout << maze_output[i][j] << "|";
         }
