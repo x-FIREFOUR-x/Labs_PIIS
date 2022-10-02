@@ -42,7 +42,7 @@ void ConsoleInterface::run()
 
         for (int i = 0; i < enemys.size(); i++)
         {
-            enemys[i]->move(maze, player);
+            enemys[i]->move(maze, player, enemys, i);
         }
 
         //std::this_thread::sleep_for(2s);

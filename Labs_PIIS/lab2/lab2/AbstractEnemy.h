@@ -14,7 +14,7 @@ public:
 	AbstractEnemy(pair<int, int> coordinates);
 	AbstractEnemy(int line, int column);
 
-	virtual void move(const Maze& maze, const Player& player) { throw exception("No realization this method in abstract class"); };
+	virtual void move(Maze maze, const Player& player, const vector<AbstractEnemy*> enemys, const int index_cur_enemy) { throw exception("No realization this method in abstract class"); };
 	virtual char symbol_view() { throw exception("No realization this method in abstract class"); };
 
 	int get_line() const;

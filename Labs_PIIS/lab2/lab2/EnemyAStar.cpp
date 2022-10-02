@@ -7,9 +7,14 @@ EnemyAStar::EnemyAStar(pair<int, int> coordinates):
 {
 }
 
-void EnemyAStar::move(const Maze& maze, const Player& player)
+void EnemyAStar::move(Maze maze, const Player& player, const vector<AbstractEnemy*> enemys, const int index_cur_enemy)
 {
 	AStar algo;
+
+	for (int i = 0; i < index_cur_enemy; i++)
+	{
+		maze.set_value_cell(enemys[i]->get_coordinates(), 0);
+	}
 
 	bool path_searched = algo.search_path(maze, make_pair(line, column), player.get_coordinates());
 
@@ -18,10 +23,6 @@ void EnemyAStar::move(const Maze& maze, const Player& player)
 		pair<int, int> coordinates = algo.coordinate_move();
 		line = coordinates.first;
 		column = coordinates.second;
-	}
-	else
-	{
-		throw exception("Path not is searched");
 	}
 }
 

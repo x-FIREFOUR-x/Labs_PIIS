@@ -7,8 +7,13 @@ EnemyRandom::EnemyRandom(pair<int, int> coordinates):
 {
 }
 
-void EnemyRandom::move(const Maze& maze, const Player& player)
+void EnemyRandom::move(Maze maze, const Player& player, const vector<AbstractEnemy*> enemys, const int index_cur_enemy)
 {
+	for (int i = 0; i < index_cur_enemy; i++)
+	{
+		maze.set_value_cell(enemys[i]->get_coordinates(), 0);
+	}
+
 	srand(time(NULL));
 
 	vector<pair<int, int>> available_moves;
