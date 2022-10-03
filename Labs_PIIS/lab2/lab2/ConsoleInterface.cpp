@@ -7,6 +7,14 @@
 
 void ConsoleInterface::run()
 {
+    bool input_gamemode_correct = false;
+    while (!input_gamemode_correct)
+    {
+        input_gamemode_correct = choose_mode_game();
+    }
+    if (is_exit)
+        return;
+
     bool input_file_correct = false; 
     while (!input_file_correct)
     {
@@ -30,11 +38,18 @@ void ConsoleInterface::run()
         if (is_finish(maze, player, enemys))
             break;
 
-        string exit = "";
-        cin >> exit;
-        if (exit == "exit")
-            is_exit = true;
-
+        if (is_auto)
+        {
+           // std::this_thread::sleep_for(1000ms);
+        }
+        else
+        {
+            string exit = "";
+            cin >> exit;
+            if (exit == "exit")
+                is_exit = true;
+        }
+        
         Player old_player = player;
 
         player.move(algorithm, maze, enemys);
@@ -43,9 +58,35 @@ void ConsoleInterface::run()
         {
             enemys[i]->move(maze, old_player, enemys, i);
         }
-
-        //std::this_thread::sleep_for(2s);
     }
+}
+
+bool ConsoleInterface::choose_mode_game()
+{
+    string mode;
+    cout << " Choose mode game(1 - render console auto, 2 - render console manual): ";
+    cin >> mode;
+
+    if (mode == "exit")
+    {
+        is_exit = true;
+        return true;
+    }
+
+    int gamemode = stoi(mode);
+    switch (gamemode)
+    {
+    case 1:
+        is_auto = true;
+        break;
+    case 2:
+        is_auto = false;
+        break;
+    default:
+        return false;
+    }
+
+    return true;
 }
 
 bool ConsoleInterface::input_file_date()
@@ -106,11 +147,11 @@ bool ConsoleInterface::input_enemys_date()
     {
     case 1:
         enemys = CreaterEnemy::createEnemys(amount, 0, maze, player);
-        algorithm = make_shared<Expectimax>(Expectimax(4, 0, 5));
+        algorithm = make_shared<Expectimax>(Expectimax(8, 1, 100));
         break;
     case 2:
         enemys = CreaterEnemy::createEnemys(0, amount, maze, player);
-        algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(3, 5, 4));
+        algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(11, 5, 4));
         break;
     default:
         return false;
