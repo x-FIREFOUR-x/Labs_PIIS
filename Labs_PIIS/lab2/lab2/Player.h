@@ -12,6 +12,7 @@ class Player
 	int column;
 
 public:
+	Player() {};
 	Player(const Maze& maze);
 	Player(int line, int column);	
 

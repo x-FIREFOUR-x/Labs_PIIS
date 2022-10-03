@@ -7,44 +7,37 @@
 
 void ConsoleInterface::run()
 {
-    string namefile;
-    cout << " -Input name file: ";
-    cin >> namefile;
-
-    ReaderWriter reader_writer;
-    Maze maze;
-    try
+    bool input_file_correct = false; 
+    while (!input_file_correct)
     {
-        maze = reader_writer.read_maze_with_file(namefile);
+        input_file_correct = input_file_date();
     }
-    catch (const std::exception& ex)
-    {
-        cout << ex.what() << namefile << endl;
+    if (is_exit)
         return;
+
+    bool input_enemys_correct = false;
+    while (!input_enemys_correct)
+    {
+        input_enemys_correct = input_enemys_date();
     }
+    if (is_exit)
+        return;
 
-    Player player(maze);
-    vector<shared_ptr<AbstractEnemy>> enemys = CreaterEnemy::createEnemys(2, 0, maze, player);
-    reader_writer.write_console_maze(maze, player, enemys);
-
-    bool is_exit = false;
     while (!is_exit)
     {
+        reader_writer.write_console_maze(maze, player, enemys);
+
         if (is_finish(maze, player, enemys))
             break;
 
         string exit = "";
         cin >> exit;
-        if (exit == "e")
+        if (exit == "exit")
             is_exit = true;
-
-        shared_ptr<Algorithm> algo;
-        //algo = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(3, 3, 2));
-        algo = make_shared<Expectimax>(Expectimax(3, 2, 5));
 
         Player old_player = player;
 
-        player.move(algo, maze, enemys);
+        player.move(algorithm, maze, enemys);
 
         for (int i = 0; i < enemys.size(); i++)
         {
@@ -52,10 +45,80 @@ void ConsoleInterface::run()
         }
 
         //std::this_thread::sleep_for(2s);
-
-        reader_writer.write_console_maze(maze, player, enemys);
-    } 
+    }
 }
+
+bool ConsoleInterface::input_file_date()
+{
+    string namefile;
+    cout << " -Input name file: ";
+    cin >> namefile;
+
+    if (namefile == "exit")
+    {
+        is_exit = true;
+        return true;
+    }
+
+    try
+    {
+        maze = reader_writer.read_maze_with_file(namefile);
+    }
+    catch (const std::exception& ex)
+    {
+        cout << ex.what() << namefile << endl;
+        return false;
+    }
+    player = Player(maze);
+    return true;
+}
+
+bool ConsoleInterface::input_enemys_date()
+{
+    string amount_enemys;
+    cout << " -Input amount enemys: ";
+    cin >> amount_enemys;
+
+    if (amount_enemys == "exit")
+    {
+        is_exit = true;
+        return true;
+    }
+
+    int amount = stoi(amount_enemys);
+    if (amount <= 0)
+    {
+        return false;
+    }
+
+    string type_enemys;
+    cout << " -Input type enemys (1 - random, 2 - A*): ";
+    cin >> type_enemys;
+
+    if (type_enemys == "exit")
+    {
+        is_exit = true;
+        return true;
+    }
+    
+    int type = stoi(type_enemys);
+    switch (type)
+    {
+    case 1:
+        enemys = CreaterEnemy::createEnemys(amount, 0, maze, player);
+        algorithm = make_shared<Expectimax>(Expectimax(4, 0, 5));
+        break;
+    case 2:
+        enemys = CreaterEnemy::createEnemys(0, amount, maze, player);
+        algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(3, 3, 2));
+        break;
+    default:
+        return false;
+    }
+
+    return true;
+}
+
 
 bool ConsoleInterface::is_finish(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys)
 {
