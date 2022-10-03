@@ -4,7 +4,15 @@
 #include "AbstractEnemy.h"
 #include "AStar.h"
 
-int Algorithm::calculate_value(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys) const
+Algorithm::Algorithm(int max_depth, int coef_dist_enemys, int coef_dist_end):
+    MAX_DEPTH(max_depth),
+    COEF_DISTANCE_ENEMYS(coef_dist_enemys),
+    COEF_DISTANCE_END(coef_dist_end)
+{
+}
+
+int Algorithm::calculate_value(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys,
+                               const int coef_dist_enemys, const int coef_dist_end) const
 {
     if (maze.get_end() == player.get_coordinates())
         return MAX_VALUE;
@@ -26,7 +34,7 @@ int Algorithm::calculate_value(const Maze& maze, const Player& player, const vec
     int min_distance_player_enemy = *min_element(distances_player_enemys.begin(), distances_player_enemys.end());
     int distance_player_finish = algoAStar.search_path(maze, player.get_coordinates(), maze.get_end());
 
-    int value = 3 * min_distance_player_enemy - 2 * distance_player_finish;
+    int value = coef_dist_enemys * min_distance_player_enemy - coef_dist_end * distance_player_finish;
 
     return value;
 }

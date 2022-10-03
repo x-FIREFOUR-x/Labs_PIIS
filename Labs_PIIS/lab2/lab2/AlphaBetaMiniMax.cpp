@@ -3,6 +3,11 @@
 #include "Player.h"
 #include "AbstractEnemy.h"
 
+AlphaBetaMiniMax::AlphaBetaMiniMax(int max_depth, int coef_dist_enemys, int coef_dist_end) 
+    :Algorithm(max_depth, coef_dist_enemys, coef_dist_end)
+{
+}
+
 pair<int, int> AlphaBetaMiniMax::coordinate_move(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys) const
 {
     pair<int, pair<int, int>> value_move = minimax(0, true, MIN_VALUE, MAX_VALUE, maze, player, enemys);

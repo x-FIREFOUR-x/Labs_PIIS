@@ -1,6 +1,7 @@
 #include "ConsoleInterface.h"
 
 #include "AlphaBetaMiniMax.h"
+#include "Expectimax.h"
 #include <thread>
 #include <chrono>
 
@@ -23,7 +24,7 @@ void ConsoleInterface::run()
     }
 
     Player player(maze);
-    vector<shared_ptr<AbstractEnemy>> enemys = CreaterEnemy::createEnemys(0, 4, maze, player);
+    vector<shared_ptr<AbstractEnemy>> enemys = CreaterEnemy::createEnemys(2, 0, maze, player);
     reader_writer.write_console_maze(maze, player, enemys);
 
     bool is_exit = false;
@@ -38,7 +39,8 @@ void ConsoleInterface::run()
             is_exit = true;
 
         shared_ptr<Algorithm> algo;
-        algo = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax());
+        //algo = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(3, 3, 2));
+        algo = make_shared<Expectimax>(Expectimax(3, 2, 5));
 
         Player old_player = player;
 
