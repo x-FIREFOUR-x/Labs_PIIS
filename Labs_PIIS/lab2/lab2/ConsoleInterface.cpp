@@ -110,7 +110,7 @@ bool ConsoleInterface::input_enemys_date()
         break;
     case 2:
         enemys = CreaterEnemy::createEnemys(0, amount, maze, player);
-        algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(3, 3, 2));
+        algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(3, 5, 4));
         break;
     default:
         return false;
