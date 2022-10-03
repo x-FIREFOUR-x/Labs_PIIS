@@ -8,13 +8,20 @@ class Player;
 
 class Algorithm
 {
+protected:
+	int MAX_VALUE = 1000;
+	int MIN_VALUE = -1000;
+	int MAX_DEPTH = 3;
+
 public:
 	virtual pair<int, int> coordinate_move(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys) const = 0;
 
 protected:
 	vector<Player> get_states_player(const Maze& maze, const Player& player) const;
-
 	vector<vector<AbstractEnemy*>> get_states_enemys(const Maze& maze, const vector<AbstractEnemy*>& enemys) const;
+
+	int calculate_value(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys) const;
+	bool is_terminal(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys) const;
 
 private:
 	vector<AbstractEnemy*> get_states_enemy(const Maze& maze, const AbstractEnemy* enemy) const;

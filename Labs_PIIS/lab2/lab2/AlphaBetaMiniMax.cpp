@@ -1,6 +1,5 @@
 #include "AlphaBetaMiniMax.h"
 
-#include "AStar.h"
 #include "Player.h"
 #include "AbstractEnemy.h"
 
@@ -60,46 +59,5 @@ pair<int, pair<int, int>> AlphaBetaMiniMax::minimax(const int depth, const bool 
         }
         return { best, best_move };
     }
-}
-
-int AlphaBetaMiniMax::calculate_value(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys) const
-{
-    if (maze.get_end() == player.get_coordinates())
-        return MAX_VALUE;
-
-    for (int i = 0; i < enemys.size(); i++)
-    {
-        if (enemys[i]->get_coordinates() == player.get_coordinates())
-            return MIN_VALUE;
-    }
-
-    vector<int> distances_player_enemys;
-    AStar algoAStar;
-    for (int i = 0; i < enemys.size(); i++)
-    {
-        algoAStar.search_path(maze, enemys[i]->get_coordinates(), player.get_coordinates());
-        distances_player_enemys.push_back(algoAStar.distance());
-    }
-    
-    int min_distance_player_enemy = *min_element(distances_player_enemys.begin(), distances_player_enemys.end());
-    int distance_player_finish = algoAStar.search_path(maze, player.get_coordinates(), maze.get_end());
-    
-    int value = 3 * min_distance_player_enemy - 2 * distance_player_finish;
-
-    return value;
-}
-
-bool AlphaBetaMiniMax::is_terminal(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys) const
-{
-    if(maze.get_end() == player.get_coordinates())
-        return true;
-
-    for (int i = 0; i < enemys.size(); i++)
-    {
-        if (enemys[i]->get_coordinates() == player.get_coordinates())
-            return true;
-    }
-
-    return false;
 }
 
