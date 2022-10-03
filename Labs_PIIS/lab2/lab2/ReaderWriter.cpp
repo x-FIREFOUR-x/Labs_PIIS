@@ -50,7 +50,7 @@ Maze ReaderWriter::read_maze_with_file(string filename)
 }
 
 
-void ReaderWriter::write_console_maze(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys)
+void ReaderWriter::write_console_maze(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys)
 {
     vector<vector<string>> maze_output;
     for (int i = 0; i < maze.get_hight_maze(); i++)

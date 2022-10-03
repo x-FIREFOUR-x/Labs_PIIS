@@ -23,7 +23,7 @@ void ConsoleInterface::run()
     }
 
     Player player(maze);
-    vector<AbstractEnemy*> enemys = CreaterEnemy::createEnemys(0, 4, maze, player);
+    vector<shared_ptr<AbstractEnemy>> enemys = CreaterEnemy::createEnemys(0, 4, maze, player);
     reader_writer.write_console_maze(maze, player, enemys);
 
     bool is_exit = false;
@@ -37,9 +37,11 @@ void ConsoleInterface::run()
         if (exit == "e")
             is_exit = true;
 
+        shared_ptr<Algorithm> algo;
+        algo = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax());
+
         Player old_player = player;
 
-        Algorithm* algo = (Algorithm*) new AlphaBetaMiniMax();
         player.move(algo, maze, enemys);
 
         for (int i = 0; i < enemys.size(); i++)
@@ -50,11 +52,10 @@ void ConsoleInterface::run()
         //std::this_thread::sleep_for(2s);
 
         reader_writer.write_console_maze(maze, player, enemys);
-       
-    }
+    } 
 }
 
-bool ConsoleInterface::is_finish(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys)
+bool ConsoleInterface::is_finish(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys)
 {
     if (player.get_coordinates() == maze.get_end())
     {

@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "AbstractEnemy.h"
 
-pair<int, int> AlphaBetaMiniMax::coordinate_move(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys) const
+pair<int, int> AlphaBetaMiniMax::coordinate_move(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys) const
 {
     pair<int, pair<int, int>> value_move = minimax(0, true, MIN_VALUE, MAX_VALUE, maze, player, enemys);
 
@@ -15,7 +15,7 @@ pair<int, int> AlphaBetaMiniMax::coordinate_move(const Maze& maze, const Player&
 
 pair<int, pair<int, int>> AlphaBetaMiniMax::minimax(const int depth, const bool is_maximizing, int alpha, int beta,
                                                     const Maze& maze, const Player& player,
-                                                    const vector<AbstractEnemy*>& enemys) const
+                                                    const vector<shared_ptr<AbstractEnemy>>& enemys) const
 {
     if (depth == MAX_DEPTH || is_terminal(maze, player, enemys))
         return { calculate_value(maze, player, enemys), player.get_coordinates() };
@@ -47,7 +47,7 @@ pair<int, pair<int, int>> AlphaBetaMiniMax::minimax(const int depth, const bool 
         int best = MAX_VALUE;
         pair<int, int> best_move = player.get_coordinates();
 
-        vector<vector<AbstractEnemy*>> state_enemys = get_states_enemys(maze, enemys);
+        vector<vector<shared_ptr<AbstractEnemy>>> state_enemys = get_states_enemys(maze, enemys);
         for (int i = 0; i < state_enemys.size(); i++)
         {
             pair<int, pair<int, int>> val_move = minimax(depth + 1, true, alpha, beta, maze, player, state_enemys[i]);

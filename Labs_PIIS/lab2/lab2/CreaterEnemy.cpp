@@ -1,28 +1,28 @@
 #include "CreaterEnemy.h"
 
-vector<AbstractEnemy*> CreaterEnemy::createEnemys(int amount_enemyR, int amount_enemyA, const Maze& maze, const Player& player)
+vector<shared_ptr<AbstractEnemy>> CreaterEnemy::createEnemys(int amount_enemyR, int amount_enemyA, const Maze& maze, const Player& player)
 {
     srand(time(NULL));
 
-	vector<AbstractEnemy*> enemys;
+	vector<shared_ptr<AbstractEnemy>> enemys;
 
 	for (int i = 0; i < amount_enemyA; i++)
 	{
 		pair<int, int> new_coordinates = randCoordinates(maze, player, enemys);
-		EnemyAStar* enemy = new EnemyAStar(new_coordinates);
-		enemys.push_back((AbstractEnemy*)enemy);
+		shared_ptr<EnemyAStar> enemy = make_shared<EnemyAStar>(new_coordinates);
+		enemys.push_back(enemy);
 	}
 
 	for (int i = 0; i < amount_enemyR; i++)
 	{
 		pair<int, int> new_coordinates = randCoordinates(maze, player, enemys);
-		EnemyRandom* enemy = new EnemyRandom(new_coordinates);
-		enemys.push_back((AbstractEnemy*)enemy);
+		shared_ptr <EnemyRandom> enemy = make_shared<EnemyRandom>(new_coordinates);
+		enemys.push_back(enemy);
 	}
 	return enemys;
 }
 
-pair<int, int> CreaterEnemy::randCoordinates(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys)
+pair<int, int> CreaterEnemy::randCoordinates(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys)
 {
 	bool rand_correct = false;
 	pair<int, int> new_coor;
@@ -41,7 +41,7 @@ pair<int, int> CreaterEnemy::randCoordinates(const Maze& maze, const Player& pla
 	return new_coor;
 }
 
-bool CreaterEnemy::not_collision_other_enemys(pair<int, int>& coor_new_enemy, const vector<AbstractEnemy*>& enemys)
+bool CreaterEnemy::not_collision_other_enemys(pair<int, int>& coor_new_enemy, const vector<shared_ptr<AbstractEnemy>>& enemys)
 {
 	bool not_coolision = true;
 

@@ -7,7 +7,7 @@ EnemyAStar::EnemyAStar(pair<int, int> coordinates):
 {
 }
 
-void EnemyAStar::move(Maze maze, const Player& player, const vector<AbstractEnemy*> enemys, const int index_cur_enemy)
+void EnemyAStar::move(Maze maze, const Player& player, const vector<shared_ptr<AbstractEnemy>> enemys, const int index_cur_enemy)
 {
 	AStar algo;
 

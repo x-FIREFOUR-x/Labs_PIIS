@@ -17,6 +17,6 @@ private:
 public:
 	Maze read_maze_with_file(string filename);
 
-	void write_console_maze(const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys);
+	void write_console_maze(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys);
 };
 

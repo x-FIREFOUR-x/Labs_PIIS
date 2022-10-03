@@ -14,6 +14,6 @@ class ConsoleInterface
 public:
 	void run();
 private:
-	bool is_finish( const Maze& maze, const Player& player, const vector<AbstractEnemy*>& enemys);
+	bool is_finish( const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys);
 };
 

@@ -19,7 +19,7 @@ public:
 	int get_column() const;
 	pair<int,int> get_coordinates() const;
 
-	void move(const Algorithm* algorithm, const Maze& maze, const vector<AbstractEnemy*> enemys);
+	void move(const shared_ptr<Algorithm>& algorithm, const Maze& maze, const vector< shared_ptr<AbstractEnemy>>& enemys);
 
 };
 

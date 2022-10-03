@@ -7,7 +7,7 @@ EnemyRandom::EnemyRandom(pair<int, int> coordinates):
 {
 }
 
-void EnemyRandom::move(Maze maze, const Player& player, const vector<AbstractEnemy*> enemys, const int index_cur_enemy)
+void EnemyRandom::move(Maze maze, const Player& player, const vector<shared_ptr<AbstractEnemy>> enemys, const int index_cur_enemy)
 {
 	for (int i = 0; i < index_cur_enemy; i++)
 	{
