@@ -26,7 +26,7 @@ pair<float, pair<int, int>> Expectimax::expectiMax(const int depth, const bool i
 
     if (is_maximizing)
     {
-        int best = MIN_VALUE;
+        float best = MIN_VALUE;
         pair<int, int> best_move;
 
         vector<Player> states_player = get_states_player(maze, player);
@@ -44,7 +44,7 @@ pair<float, pair<int, int>> Expectimax::expectiMax(const int depth, const bool i
     }
     else
     {
-        int math_expectation = 0;
+        float math_expectation = 0;
         pair<int, int> best_move = player.get_coordinates();
 
         vector<vector<shared_ptr<AbstractEnemy>>> state_enemys = get_states_enemys(maze, enemys);

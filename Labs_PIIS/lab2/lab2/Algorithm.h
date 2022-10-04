@@ -10,8 +10,8 @@ class Player;
 class Algorithm
 {
 protected:
-	const int MAX_VALUE = 1000;
-	const int MIN_VALUE = -1000;
+	const int MAX_VALUE = 100000;
+	const int MIN_VALUE = -100000;
 	const int MAX_DEPTH;
 	const int COEF_DISTANCE_ENEMYS;
 	const int COEF_DISTANCE_END;
@@ -21,8 +21,7 @@ public:
 	virtual pair<int, int> coordinate_move(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys) const = 0;
 
 protected:
-	int calculate_value(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys,
-						const int coef_dist_enemys = 1, const int coef_dist_end = 1) const;
+	int calculate_value(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys) const;
 
 	bool is_terminal(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys) const;
 

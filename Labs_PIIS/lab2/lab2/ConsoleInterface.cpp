@@ -147,7 +147,7 @@ bool ConsoleInterface::input_enemys_date()
     {
     case 1:
         enemys = CreaterEnemy::createEnemys(amount, 0, maze, player);
-        algorithm = make_shared<Expectimax>(Expectimax(8, 1, 100));
+        algorithm = make_shared<Expectimax>(Expectimax(8, 2, 4));
         break;
     case 2:
         enemys = CreaterEnemy::createEnemys(0, amount, maze, player);
