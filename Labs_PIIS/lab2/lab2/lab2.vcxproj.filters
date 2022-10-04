@@ -75,6 +75,9 @@
     <ClCompile Include="Expectimax.cpp">
       <Filter>Исходные файлы\Player</Filter>
     </ClCompile>
+    <ClCompile Include="MiniMax.cpp">
+      <Filter>Исходные файлы\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ReaderWriter.h">
@@ -114,6 +117,9 @@
       <Filter>Файлы заголовков\Player</Filter>
     </ClInclude>
     <ClInclude Include="Expectimax.h">
+      <Filter>Файлы заголовков\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniMax.h">
       <Filter>Файлы заголовков\Player</Filter>
     </ClInclude>
   </ItemGroup>

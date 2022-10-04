@@ -1,7 +1,9 @@
 #include "ConsoleInterface.h"
 
+#include "MiniMax.h"
 #include "AlphaBetaMiniMax.h"
 #include "Expectimax.h"
+
 #include <thread>
 #include <chrono>
 
@@ -27,6 +29,14 @@ void ConsoleInterface::run()
     while (!input_enemys_correct)
     {
         input_enemys_correct = input_enemys_date();
+    }
+    if (is_exit)
+        return;
+
+    bool chose_algorithm_correct = false;
+    while (!chose_algorithm_correct)
+    {
+        chose_algorithm_correct = chose_algorithm();
     }
     if (is_exit)
         return;
@@ -152,6 +162,36 @@ bool ConsoleInterface::input_enemys_date()
     case 2:
         enemys = CreaterEnemy::createEnemys(0, amount, maze, player);
         algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(11, 5, 4));
+        break;
+    default:
+        return false;
+    }
+
+    return true;
+}
+
+bool ConsoleInterface::chose_algorithm()
+{
+    string type_algo;
+    cout << " -Input algorithm(1 - MiniMax, 2 - Alpha-Beta MiniMax, 3 - Expectimax): ";
+    cin >> type_algo;
+
+    if (type_algo == "exit")
+    {
+        is_exit = true;
+        return true;
+    }
+    int type = stoi(type_algo);
+
+    switch (type)
+    {
+    case 1:
+        algorithm = make_shared<MiniMax>(MiniMax(11, 1, 2));
+    case 2:
+        algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(11, 1, 2));
+        break;
+    case 3:
+        algorithm = make_shared<Expectimax>(Expectimax(8, 1, 2));
         break;
     default:
         return false;

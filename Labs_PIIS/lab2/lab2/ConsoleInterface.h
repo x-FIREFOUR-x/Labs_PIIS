@@ -28,6 +28,7 @@ private:
 	bool choose_mode_game();
 	bool input_file_date();
 	bool input_enemys_date();
+	bool chose_algorithm();
 	bool is_finish( const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys);
 };
 
