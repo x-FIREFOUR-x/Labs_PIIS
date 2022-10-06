@@ -6,6 +6,7 @@
 
 #include <thread>
 #include <chrono>
+#include <ctime>
 
 void ConsoleInterface::run()
 {
@@ -48,11 +49,8 @@ void ConsoleInterface::run()
         if (is_finish(maze, player, enemys))
             break;
 
-        if (is_auto)
-        {
-           // std::this_thread::sleep_for(1000ms);
-        }
-        else
+        
+        if (!is_auto)
         {
             string exit = "";
             cin >> exit;
@@ -60,6 +58,8 @@ void ConsoleInterface::run()
                 is_exit = true;
         }
         
+        clock_t start_time = clock();
+
         Player old_player = player;
 
         player.move(algorithm, maze, enemys);
@@ -67,6 +67,19 @@ void ConsoleInterface::run()
         for (int i = 0; i < enemys.size(); i++)
         {
             enemys[i]->move(maze, old_player, enemys, i);
+        }
+
+        clock_t end_time = clock();
+        if (is_auto)
+        {
+            clock_t mseconds = (end_time - start_time);
+            clock_t time_stop = 1 * CLOCKS_PER_SEC;
+            if (mseconds < time_stop)
+            {
+                mseconds = time_stop - mseconds;
+                std::this_thread::sleep_for(std::chrono::milliseconds(mseconds));
+                
+            }
         }
     }
 }
@@ -157,11 +170,9 @@ bool ConsoleInterface::input_enemys_date()
     {
     case 1:
         enemys = CreaterEnemy::createEnemys(amount, 0, maze, player);
-        algorithm = make_shared<Expectimax>(Expectimax(8, 5, 4));
         break;
     case 2:
         enemys = CreaterEnemy::createEnemys(0, amount, maze, player);
-        algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(11, 5, 4));
         break;
     default:
         return false;
@@ -186,12 +197,12 @@ bool ConsoleInterface::chose_algorithm()
     switch (type)
     {
     case 1:
-        algorithm = make_shared<MiniMax>(MiniMax(11, 1, 2));
+        algorithm = make_shared<MiniMax>(MiniMax(11, 1, 3));
     case 2:
         algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(11, 1, 2));
         break;
     case 3:
-        algorithm = make_shared<Expectimax>(Expectimax(8, 1, 2));
+        algorithm = make_shared<Expectimax>(Expectimax(2, 1, 2));
         break;
     default:
         return false;
