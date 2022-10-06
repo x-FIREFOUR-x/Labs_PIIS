@@ -197,12 +197,12 @@ bool ConsoleInterface::chose_algorithm()
     switch (type)
     {
     case 1:
-        algorithm = make_shared<MiniMax>(MiniMax(11, 1, 3));
+        algorithm = make_shared<MiniMax>(MiniMax(11, 1, 2));
     case 2:
         algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(11, 1, 2));
         break;
     case 3:
-        algorithm = make_shared<Expectimax>(Expectimax(2, 1, 2));
+        algorithm = make_shared<Expectimax>(Expectimax(1, 1, 1000));
         break;
     default:
         return false;

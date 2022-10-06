@@ -2,6 +2,9 @@
 
 bool AStar::search_path(const Maze& maze, pair<int, int> _start, pair<int, int> _end)
 {
+    path.clear();
+    list_closed.clear();
+    list_opened = priority_queue<pair<int, AdjCells>, vector<pair<int, AdjCells>>, std::greater<pair<int, AdjCells>>>();
     this->start = _start;
     this->end = _end;
 	list_opened.push(make_pair<int, AdjCells>

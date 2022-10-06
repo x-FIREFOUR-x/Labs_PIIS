@@ -31,7 +31,9 @@ int Algorithm::calculate_value(const Maze& maze, const Player& player, const vec
     }
 
     int min_distance_player_enemy = *min_element(distances_player_enemys.begin(), distances_player_enemys.end());
-    int distance_player_finish = algoAStar.search_path(maze, player.get_coordinates(), maze.get_end());
+
+    algoAStar.search_path(maze, player.get_coordinates(), maze.get_end());
+    int distance_player_finish = algoAStar.distance();
 
     int value = COEF_DISTANCE_ENEMYS * min_distance_player_enemy - COEF_DISTANCE_END * distance_player_finish;
 
