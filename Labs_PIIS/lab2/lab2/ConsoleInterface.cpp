@@ -140,7 +140,7 @@ bool ConsoleInterface::input_file_date()
 bool ConsoleInterface::input_enemys_date()
 {
     string amount_enemys;
-    cout << " -Input amount enemys: ";
+    cout << " -Input amount AStar enemys: ";
     cin >> amount_enemys;
 
     if (amount_enemys == "exit")
@@ -149,34 +149,29 @@ bool ConsoleInterface::input_enemys_date()
         return true;
     }
 
-    int amount = stoi(amount_enemys);
-    if (amount <= 0)
+    int amount_astar = stoi(amount_enemys);
+    if (amount_astar < 0)
     {
         return false;
     }
 
-    string type_enemys;
-    cout << " -Input type enemys (1 - random, 2 - A*): ";
-    cin >> type_enemys;
+    amount_enemys;
+    cout << " -Input amount Random enemys: ";
+    cin >> amount_enemys;
 
-    if (type_enemys == "exit")
+    if (amount_enemys == "exit")
     {
         is_exit = true;
         return true;
     }
-    
-    int type = stoi(type_enemys);
-    switch (type)
+
+    int amount_random = stoi(amount_enemys);
+    if (amount_random < 0)
     {
-    case 1:
-        enemys = CreaterEnemy::createEnemys(amount, 0, maze, player);
-        break;
-    case 2:
-        enemys = CreaterEnemy::createEnemys(0, amount, maze, player);
-        break;
-    default:
         return false;
     }
+    
+    enemys = CreaterEnemy::createEnemys(amount_random, amount_astar, maze, player);
 
     return true;
 }
@@ -202,7 +197,7 @@ bool ConsoleInterface::chose_algorithm()
         algorithm = make_shared<AlphaBetaMiniMax>(AlphaBetaMiniMax(11, 1, 2));
         break;
     case 3:
-        algorithm = make_shared<Expectimax>(Expectimax(1, 1, 1000));
+        algorithm = make_shared<Expectimax>(Expectimax(3, 1, 2));
         break;
     default:
         return false;
