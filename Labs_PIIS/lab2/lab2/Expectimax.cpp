@@ -89,8 +89,7 @@ vector<vector<shared_ptr<AbstractEnemy>>> Expectimax::get_combine_states_AstarEn
     {
         if (enemys[i]->symbol_view() == '*')
         {
-            shared_ptr <EnemyAStar> enemy = make_shared<EnemyAStar>(enemys[i]->get_coordinates());
-            AstarEnemys.push_back(enemy);
+            AstarEnemys.push_back(enemys[i]);
         }   
     }
 
@@ -99,8 +98,7 @@ vector<vector<shared_ptr<AbstractEnemy>>> Expectimax::get_combine_states_AstarEn
     {
         if (enemys[i]->symbol_view() == '&')
         {
-            shared_ptr <EnemyRandom> enemy = make_shared<EnemyRandom>(enemys[i]->get_coordinates());
-            randomEnemys.push_back(enemy);
+            randomEnemys.push_back(enemys[i]);
         }    
     }
 
@@ -134,8 +132,7 @@ vector<vector<shared_ptr<AbstractEnemy>>> Expectimax::get_combine_states_RandomE
     {
         if (enemys[i]->symbol_view() == '*')
         {
-            shared_ptr <EnemyAStar> enemy = make_shared<EnemyAStar>(enemys[i]->get_coordinates());
-            AstarEnemys.push_back(enemy);
+            AstarEnemys.push_back(enemys[i]);
         }
     }
 
@@ -144,8 +141,7 @@ vector<vector<shared_ptr<AbstractEnemy>>> Expectimax::get_combine_states_RandomE
     {
         if (enemys[i]->symbol_view() == '&')
         {
-            shared_ptr <EnemyRandom> enemy = make_shared<EnemyRandom>(enemys[i]->get_coordinates());
-            randomEnemys.push_back(enemy);
+            randomEnemys.push_back(enemys[i]);
         }
     }
 
