@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\Player">
+      <UniqueIdentifier>{4773cc34-62a0-4b7c-a060-2c32755ec4e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Player">
+      <UniqueIdentifier>{90f6e411-d141-44ba-81f5-224eb5dc02d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Maze">
+      <UniqueIdentifier>{e3b26fa0-5608-41dd-8ea2-94faee75e1fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Maze">
+      <UniqueIdentifier>{b43c27ff-8c45-448e-a78d-566e621ed7e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Enemy">
+      <UniqueIdentifier>{ca7fbb5a-93da-4498-8a29-f59e0e9d47a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Enemy">
+      <UniqueIdentifier>{08d0639b-ad3f-46bd-97e2-022df1fc03d5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lab2.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ReaderWriter.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleInterface.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Исходные файлы\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="AdjCells.cpp">
+      <Filter>Исходные файлы\Maze</Filter>
+    </ClCompile>
+    <ClCompile Include="Maze.cpp">
+      <Filter>Исходные файлы\Maze</Filter>
+    </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>Исходные файлы\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractEnemy.cpp">
+      <Filter>Исходные файлы\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyRandom.cpp">
+      <Filter>Исходные файлы\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAStar.cpp">
+      <Filter>Исходные файлы\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="CreaterEnemy.cpp">
+      <Filter>Исходные файлы\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="AlphaBetaMiniMax.cpp">
+      <Filter>Исходные файлы\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithm.cpp">
+      <Filter>Исходные файлы\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Expectimax.cpp">
+      <Filter>Исходные файлы\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniMax.cpp">
+      <Filter>Исходные файлы\Player</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ReaderWriter.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleInterface.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Файлы заголовков\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Maze.h">
+      <Filter>Файлы заголовков\Maze</Filter>
+    </ClInclude>
+    <ClInclude Include="AdjCells.h">
+      <Filter>Файлы заголовков\Maze</Filter>
+    </ClInclude>
+    <ClInclude Include="AStar.h">
+      <Filter>Файлы заголовков\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractEnemy.h">
+      <Filter>Файлы заголовков\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyRandom.h">
+      <Filter>Файлы заголовков\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyAStar.h">
+      <Filter>Файлы заголовков\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="CreaterEnemy.h">
+      <Filter>Файлы заголовков\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="AlphaBetaMiniMax.h">
+      <Filter>Файлы заголовков\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Algorithm.h">
+      <Filter>Файлы заголовков\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Expectimax.h">
+      <Filter>Файлы заголовков\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniMax.h">
+      <Filter>Файлы заголовков\Player</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
