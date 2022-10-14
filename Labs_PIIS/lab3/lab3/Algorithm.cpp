@@ -1,7 +1,6 @@
 #include "Algorithm.h"
 
-#include "Player.h"
-#include "AbstractEnemy.h"
+#include "Entities.h"
 #include "AStar.h"
 
 Algorithm::Algorithm(int max_depth, int coef_dist_enemys, int coef_dist_end):
@@ -96,6 +95,32 @@ vector<vector<shared_ptr<AbstractEnemy>>> Algorithm::get_states_enemys(const Maz
     {
         return possible_state_enemys;
     }
+}
+
+vector<Entities> Algorithm::get_states_entities(const Side side, const Maze& maze, const Entities& entities) const
+{
+    vector<Entities> states_entities;
+
+    if (side == Side::PLAYER_SIDE)
+    {
+        vector<Player> states_player = get_states_player(maze, entities.player);
+        for (int i = 0; i < states_player.size(); i++)
+        {
+            Entities new_state_entities(states_player[i], entities.enemys);
+            states_entities.push_back(new_state_entities);
+        }
+    }
+    else
+    {
+        vector<vector<shared_ptr<AbstractEnemy>>> state_enemys = get_states_enemys(maze, entities.enemys);
+        for (int i = 0; i < state_enemys.size(); i++)
+        {
+            Entities new_state_entities(entities.player, state_enemys[i]);
+            states_entities.push_back(new_state_entities);
+        }
+    }
+
+    return states_entities;
 }
 
 vector<shared_ptr<AbstractEnemy>> Algorithm::get_states_enemy(const Maze& maze, const shared_ptr<AbstractEnemy>& enemy) const

@@ -149,6 +149,7 @@
     <ClCompile Include="EnemyAStar.cpp" />
     <ClCompile Include="CreaterEnemy.cpp" />
     <ClCompile Include="EnemyRandom.cpp" />
+    <ClCompile Include="Entities.cpp" />
     <ClCompile Include="Expectimax.cpp" />
     <ClCompile Include="lab3.cpp" />
     <ClCompile Include="Maze.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="EnemyAStar.h" />
     <ClInclude Include="CreaterEnemy.h" />
     <ClInclude Include="EnemyRandom.h" />
+    <ClInclude Include="Entities.h" />
     <ClInclude Include="Expectimax.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="MiniMax.h" />
