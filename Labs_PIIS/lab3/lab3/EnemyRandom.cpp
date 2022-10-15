@@ -11,7 +11,8 @@ void EnemyRandom::move(Maze maze, const Player& player, const vector<shared_ptr<
 {
 	for (int i = 0; i < index_cur_enemy; i++)
 	{
-		maze.set_value_cell(enemys[i]->get_coordinates(), 0);
+		if (enemys[i]->get_coordinates() != player.get_coordinates())
+			maze.set_value_cell(enemys[i]->get_coordinates(), 0);
 	}
 
 	srand(time(NULL));
