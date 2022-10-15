@@ -144,6 +144,7 @@
     <ClCompile Include="AdjCells.cpp" />
     <ClCompile Include="Algorithm.cpp" />
     <ClCompile Include="AlphaBetaMiniMax.cpp" />
+    <ClCompile Include="AlphaBetaNegaMax.cpp" />
     <ClCompile Include="AStar.cpp" />
     <ClCompile Include="ConsoleInterface.cpp" />
     <ClCompile Include="EnemyAStar.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="AdjCells.h" />
     <ClInclude Include="Algorithm.h" />
     <ClInclude Include="AlphaBetaMiniMax.h" />
+    <ClInclude Include="AlphaBetaNegaMax.h" />
     <ClInclude Include="AStar.h" />
     <ClInclude Include="ConsoleInterface.h" />
     <ClInclude Include="EnemyAStar.h" />

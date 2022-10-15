@@ -96,6 +96,9 @@
     <ClCompile Include="Entities.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="AlphaBetaNegaMax.cpp">
+      <Filter>Исходные файлы\Algorithm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ReaderWriter.h">
@@ -145,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="Entities.h">
       <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="AlphaBetaNegaMax.h">
+      <Filter>Файлы заголовков\Algorithm</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
