@@ -21,32 +21,35 @@ pair<int, pair<int, int>> NegaScout::negascout(const int depth, const Side side,
     if (depth == MAX_DEPTH || is_terminal(maze, entities.player, entities.enemys))
         return {side * calculate_value(maze, entities.player, entities.enemys), entities.player.get_coordinates() };
 
-    pair<int, int> best_move = pair<int, int>(-1, -1);
-
     vector<Entities> states_entities = get_states_entities(side, maze, entities);
 
-    int b = beta;
-    int t;
+    int value;
+    pair<int, int> best_move = pair<int, int>(-1, -1);
 
     for (int i = 0; i < states_entities.size(); i++)
     {
-        pair<int, pair<int, int>> val_move = negascout(depth + 1, (Side)-side, -b, -alpha, maze, states_entities[i]);
-        t = -val_move.first;
-
-        if ((t > alpha) && (t < beta) && (i > 0))
+        if (i == 0)
         {
-            t = - negascout(depth + 1, (Side)-side, -beta, -alpha, maze, states_entities[i]).first;
+            value = -negascout(depth + 1, (Side)-side, -beta, -alpha, maze, states_entities[i]).first;
+        }
+        else
+        {
+            value = -negascout(depth + 1, (Side)-side, -alpha - 1, -alpha, maze, states_entities[i]).first;
+        }
+
+        if ((value > alpha) && (value < beta))
+        {
+            value = - negascout(depth + 1, (Side)-side, -beta, -value, maze, states_entities[i]).first;
         }
            
-        if (t > alpha)
+        if (value > alpha)
         {
-            alpha = t;
+            alpha = value;
             best_move = states_entities[i].player.get_coordinates();
         }
 
         if (alpha >= beta)
-            return {alpha, states_entities[i].player.get_coordinates() };
-        b = alpha + 1;
+            break;
     }
     return { alpha, best_move };
 }
