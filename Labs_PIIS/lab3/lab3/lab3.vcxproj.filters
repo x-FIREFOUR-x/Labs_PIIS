@@ -99,6 +99,9 @@
     <ClCompile Include="AlphaBetaNegaMax.cpp">
       <Filter>Исходные файлы\Algorithm</Filter>
     </ClCompile>
+    <ClCompile Include="NegaScout.cpp">
+      <Filter>Исходные файлы\Algorithm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ReaderWriter.h">
@@ -150,6 +153,9 @@
       <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
     <ClInclude Include="AlphaBetaNegaMax.h">
+      <Filter>Файлы заголовков\Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="NegaScout.h">
       <Filter>Файлы заголовков\Algorithm</Filter>
     </ClInclude>
   </ItemGroup>

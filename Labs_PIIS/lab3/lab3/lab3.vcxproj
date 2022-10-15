@@ -156,6 +156,7 @@
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="MiniMax.cpp" />
     <ClCompile Include="NegaMax.cpp" />
+    <ClCompile Include="NegaScout.cpp" />
     <ClCompile Include="ReaderWriter.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
@@ -175,6 +176,7 @@
     <ClInclude Include="Maze.h" />
     <ClInclude Include="MiniMax.h" />
     <ClInclude Include="NegaMax.h" />
+    <ClInclude Include="NegaScout.h" />
     <ClInclude Include="ReaderWriter.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>

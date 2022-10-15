@@ -2,7 +2,7 @@
 
 #include "NegaMax.h"
 #include "AlphaBetaNegaMax.h"
-#include "Expectimax.h"
+#include "NegaScout.h"
 
 #include <thread>
 #include <chrono>
@@ -179,7 +179,7 @@ bool ConsoleInterface::input_enemys_date()
 bool ConsoleInterface::chose_algorithm()
 {
     string type_algo;
-    cout << " -Input algorithm(1 - NegaMax, 2 - Alpha-Beta NegaMax, 3 - Expectimax): ";
+    cout << " -Input algorithm(1 - NegaMax, 2 - Alpha-Beta NegaMax, 3 - NegaScout): ";
     cin >> type_algo;
 
     if (type_algo == "exit")
@@ -198,7 +198,7 @@ bool ConsoleInterface::chose_algorithm()
         algorithm = make_shared<AlphaBetaNegaMax>(AlphaBetaNegaMax(8, 1, 2));
         break;
     case 3:
-        algorithm = make_shared<Expectimax>(Expectimax(3, 1, 2));
+        algorithm = make_shared<NegaScout>(NegaScout(8, 1, 2));
         break;
     default:
         return false;
