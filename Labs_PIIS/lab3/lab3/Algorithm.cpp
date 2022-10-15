@@ -12,14 +12,14 @@ Algorithm::Algorithm(int max_depth, int coef_dist_enemys, int coef_dist_end):
 
 int Algorithm::calculate_value(const Maze& maze, const Player& player, const vector<shared_ptr<AbstractEnemy>>& enemys) const
 {
-    if (maze.get_end() == player.get_coordinates())
-        return MAX_VALUE;
-
     for (int i = 0; i < enemys.size(); i++)
     {
         if (enemys[i]->get_coordinates() == player.get_coordinates())
             return MIN_VALUE;
     }
+
+    if (maze.get_end() == player.get_coordinates())
+        return MAX_VALUE;
 
     vector<int> distances_player_enemys;
     AStar algoAStar;

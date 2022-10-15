@@ -33,7 +33,7 @@ pair<int, pair<int, int>> NegaScout::negascout(const int depth, const Side side,
         pair<int, pair<int, int>> val_move = negascout(depth + 1, (Side)-side, -b, -alpha, maze, states_entities[i]);
         t = -val_move.first;
 
-        if ((t > b) && (t < beta) && (i > 0))
+        if ((t > alpha) && (t < beta) && (i > 0))
         {
             t = - negascout(depth + 1, (Side)-side, -beta, -alpha, maze, states_entities[i]).first;
         }

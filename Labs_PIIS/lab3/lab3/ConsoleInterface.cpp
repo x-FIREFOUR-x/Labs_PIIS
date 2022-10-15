@@ -192,13 +192,13 @@ bool ConsoleInterface::chose_algorithm()
     switch (type)
     {
     case 1:
-        algorithm = make_shared<NegaMax>(NegaMax(8, 1, 2));
+        algorithm = make_shared<NegaMax>(NegaMax(10, 1, 3));
         break;
     case 2:
-        algorithm = make_shared<AlphaBetaNegaMax>(AlphaBetaNegaMax(8, 1, 2));
+        algorithm = make_shared<AlphaBetaNegaMax>(AlphaBetaNegaMax(10, 1, 3));
         break;
     case 3:
-        algorithm = make_shared<NegaScout>(NegaScout(8, 1, 2));
+        algorithm = make_shared<NegaScout>(NegaScout(10, 1, 3));
         break;
     default:
         return false;
