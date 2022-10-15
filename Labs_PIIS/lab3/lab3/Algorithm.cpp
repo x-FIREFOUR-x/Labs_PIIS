@@ -93,7 +93,12 @@ vector<vector<shared_ptr<AbstractEnemy>>> Algorithm::get_states_enemys(const Maz
     }
     else
     {
-        return possible_state_enemys;
+        vector<vector<shared_ptr<AbstractEnemy>>> all_combine_states_enemys;
+        for (int i = 0; i < possible_state_enemys[0].size(); i++)
+        {
+            vector<shared_ptr<AbstractEnemy>> one_state = { possible_state_enemys[0][i] };
+            all_combine_states_enemys.push_back(one_state);
+        }
     }
 }
 
