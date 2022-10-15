@@ -37,9 +37,9 @@ pair<int, pair<int, int>> NegaScout::negascout(const int depth, const Side side,
             value = -negascout(depth + 1, (Side)-side, -alpha - 1, -alpha, maze, states_entities[i]).first;
         }
 
-        if ((value > alpha) && (value < beta))
+        if ((value > alpha) && (value < beta) && (i > 0))
         {
-            value = - negascout(depth + 1, (Side)-side, -beta, -value, maze, states_entities[i]).first;
+            value = - negascout(depth + 1, (Side)-side, -beta, -alpha, maze, states_entities[i]).first;
         }
            
         if (value > alpha)
