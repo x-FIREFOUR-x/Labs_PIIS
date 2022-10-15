@@ -11,6 +11,6 @@ public:
 
 private:
 	pair<int, pair<int, int>> negascout(const int depth, const Side side, int alpha, int beta,
-		const Maze& maze, const Entities& entities) const;
+										const Maze& maze, const Entities& entities) const;
 };
 

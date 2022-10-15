@@ -18,7 +18,7 @@ pair<int, int> NegaMax::coordinate_move(const Maze& maze, const Player& player, 
 }
 
 pair<int, pair<int, int>> NegaMax::negamax(const int depth, const Side side,
-    const Maze& maze, const Entities& entities) const
+                                           const Maze& maze, const Entities& entities) const
 {
     if (depth == MAX_DEPTH || is_terminal(maze, entities.player, entities.enemys))
         return { side * calculate_value(maze, entities.player, entities.enemys), entities.player.get_coordinates() };
