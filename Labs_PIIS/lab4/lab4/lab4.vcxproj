@@ -139,7 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DirectedGraph.cpp" />
+    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="lab4.cpp" />
+    <ClCompile Include="UndirectedGraph.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DirectedGraph.h" />
+    <ClInclude Include="Graph.h" />
+    <ClInclude Include="UndirectedGraph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

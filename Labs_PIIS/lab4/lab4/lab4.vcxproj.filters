@@ -13,10 +13,36 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\Graph">
+      <UniqueIdentifier>{b5018488-5438-4a6f-8f52-891c36273afd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Graph">
+      <UniqueIdentifier>{afe2e5b4-25ef-43d9-8221-b427ebb511d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lab4.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Graph.cpp">
+      <Filter>Исходные файлы\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectedGraph.cpp">
+      <Filter>Исходные файлы\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="UndirectedGraph.cpp">
+      <Filter>Исходные файлы\Graph</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Graph.h">
+      <Filter>Файлы заголовков\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedGraph.h">
+      <Filter>Файлы заголовков\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="UndirectedGraph.h">
+      <Filter>Файлы заголовков\Graph</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
