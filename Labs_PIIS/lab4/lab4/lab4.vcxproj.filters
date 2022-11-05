@@ -51,6 +51,9 @@
     <ClCompile Include="Dijkstra.cpp">
       <Filter>Исходные файлы\Algorithm</Filter>
     </ClCompile>
+    <ClCompile Include="KarpRabin.cpp">
+      <Filter>Исходные файлы\Algorithm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h">
@@ -72,6 +75,9 @@
       <Filter>Файлы заголовков\Graph</Filter>
     </ClInclude>
     <ClInclude Include="Dijkstra.h">
+      <Filter>Файлы заголовков\Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="KarpRabin.h">
       <Filter>Файлы заголовков\Algorithm</Filter>
     </ClInclude>
   </ItemGroup>
