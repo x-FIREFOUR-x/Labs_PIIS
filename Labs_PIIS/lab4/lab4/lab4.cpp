@@ -5,6 +5,7 @@
 
 #include "FileWorkerGraph.h"
 #include "Prima.h"
+#include "Dijkstra.h"
 
 int main()
 {
@@ -16,9 +17,12 @@ int main()
     UndirectedGraph g2 = f.read_undirectedgraph("fileUndir.txt");
     g2.print_graph();
 
-    Prima algo;
-    algo.search_minimum_spanning_tree(g2);
-    algo.print_result();
+    //Prima algo;
+    //algo.search_minimum_spanning_tree(g2);
+    //algo.print_result();
+
+    Dijkstra dijkstra;
+    dijkstra.search_paths(g1, 1);
     
 }
 

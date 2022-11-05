@@ -48,6 +48,9 @@
     <ClCompile Include="Edge.cpp">
       <Filter>Исходные файлы\Graph</Filter>
     </ClCompile>
+    <ClCompile Include="Dijkstra.cpp">
+      <Filter>Исходные файлы\Algorithm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h">
@@ -67,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="Edge.h">
       <Filter>Файлы заголовков\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Dijkstra.h">
+      <Filter>Файлы заголовков\Algorithm</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

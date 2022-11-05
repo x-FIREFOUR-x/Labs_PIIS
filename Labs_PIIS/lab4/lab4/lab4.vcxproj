@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dijkstra.cpp" />
     <ClCompile Include="DirectedGraph.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="FileWorkerGraph.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="UndirectedGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dijkstra.h" />
     <ClInclude Include="DirectedGraph.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="FileWorkerGraph.h" />
