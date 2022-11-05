@@ -140,13 +140,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DirectedGraph.cpp" />
+    <ClCompile Include="FileWorkerGraph.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="lab4.cpp" />
+    <ClCompile Include="Prima.cpp" />
     <ClCompile Include="UndirectedGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectedGraph.h" />
+    <ClInclude Include="FileWorkerGraph.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="Prima.h" />
     <ClInclude Include="UndirectedGraph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

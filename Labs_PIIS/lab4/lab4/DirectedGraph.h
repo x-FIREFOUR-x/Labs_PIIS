@@ -6,9 +6,9 @@ using namespace std;
 class DirectedGraph : public Graph
 {
 public:
-	DirectedGraph(int amount_vertices);
+	DirectedGraph(const int amount_vertices);
 
-	void set_weight_edges(int vertice1, int vertice2, float weight_edge);
-	float get_weight_edges(int vertice1, int vertice2);
+	void set_weight_edges(const int vertice1, const int vertice2, const float weight_edge);
+	float get_weight_edges(const int vertice1, const int vertice2) const;
 };
 

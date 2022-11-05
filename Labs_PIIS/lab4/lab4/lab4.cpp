@@ -3,9 +3,18 @@
 
 #include <iostream>
 
+#include "FileWorkerGraph.h"
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    FileWorkerGraph f;
+
+    DirectedGraph g1 = f.read_directedgraph("fileDir.txt");
+    g1.print_graph();
+
+    UndirectedGraph g2 = f.read_undirectedgraph("fileUndir.txt");
+    g2.print_graph();
+
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

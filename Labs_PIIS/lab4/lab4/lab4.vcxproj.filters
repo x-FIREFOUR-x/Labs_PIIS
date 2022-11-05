@@ -19,19 +19,31 @@
     <Filter Include="Файлы заголовков\Graph">
       <UniqueIdentifier>{afe2e5b4-25ef-43d9-8221-b427ebb511d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Algorithm">
+      <UniqueIdentifier>{99a12cd9-5d50-4ec7-9a17-47a949ab16d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Algorithm">
+      <UniqueIdentifier>{8ce40149-3c5d-49cb-8502-1c4fc08a0882}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lab4.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Graph.cpp">
-      <Filter>Исходные файлы\Graph</Filter>
     </ClCompile>
     <ClCompile Include="DirectedGraph.cpp">
       <Filter>Исходные файлы\Graph</Filter>
     </ClCompile>
     <ClCompile Include="UndirectedGraph.cpp">
       <Filter>Исходные файлы\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="FileWorkerGraph.cpp">
+      <Filter>Исходные файлы\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph.cpp">
+      <Filter>Исходные файлы\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="Prima.cpp">
+      <Filter>Исходные файлы\Algorithm</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +55,12 @@
     </ClInclude>
     <ClInclude Include="UndirectedGraph.h">
       <Filter>Файлы заголовков\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="FileWorkerGraph.h">
+      <Filter>Файлы заголовков\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Prima.h">
+      <Filter>Файлы заголовков\Algorithm</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
