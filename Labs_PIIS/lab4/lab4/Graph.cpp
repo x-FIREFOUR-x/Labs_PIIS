@@ -23,6 +23,11 @@ float Graph::get_weight_edges(const int vertice1, const int vertice2) const
 	return matrix[vertice1][vertice2];
 }
 
+int Graph::amount_vertices() const
+{
+	return matrix.size();
+}
+
 bool Graph::is_edge(const int vertice1, const int vertice2) const
 {
 	if (matrix[vertice1][vertice2] == Edge::EdgeUnexist)

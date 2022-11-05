@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "FileWorkerGraph.h"
+#include "Prima.h"
 
 int main()
 {
@@ -15,6 +16,10 @@ int main()
     UndirectedGraph g2 = f.read_undirectedgraph("fileUndir.txt");
     g2.print_graph();
 
+    Prima algo;
+    algo.search_minimum_spanning_tree(g2);
+    algo.print_result();
+    
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

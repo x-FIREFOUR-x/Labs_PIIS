@@ -45,6 +45,9 @@
     <ClCompile Include="Prima.cpp">
       <Filter>Исходные файлы\Algorithm</Filter>
     </ClCompile>
+    <ClCompile Include="Edge.cpp">
+      <Filter>Исходные файлы\Graph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="Prima.h">
       <Filter>Файлы заголовков\Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>Файлы заголовков\Graph</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
