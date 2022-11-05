@@ -1,7 +1,4 @@
-﻿// lab4.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+﻿#include <iostream>
 
 #include "FileWorkerGraph.h"
 #include "Prima.h"
@@ -10,24 +7,62 @@
 
 int main()
 {
-    FileWorkerGraph f;
+    bool is_run = true;
+    while (is_run)
+    {
+        int chosen_algo;
+        cout << "Choose algorithm (1-Karp-Rabin, 2-Dijkstra, 3-Prima, other-exit): ";
+        cin >> chosen_algo;
 
-    DirectedGraph g1 = f.read_directedgraph("fileDir.txt");
-    g1.print_graph();
+        string namefile;
+        FileWorkerGraph fileWorker;
 
-    UndirectedGraph g2 = f.read_undirectedgraph("fileUndir.txt");
-    g2.print_graph();
+        DirectedGraph dirGraph;
+        UndirectedGraph undirGraph;
 
-    //Prima algo;
-    //algo.search_minimum_spanning_tree(g2);
-    //algo.print_result();
+        KarpRabin karp_rabin;
+        Dijkstra dijkstra;
+        Prima prima;
 
-    //Dijkstra dijkstra;
-    //dijkstra.search_paths(g1, 1);
+        int start;
 
-    KarpRabin karp_rabin;
-    //int pos = karp_rabin.position_substr("KPI FIOT 121 IPI IP-0j", "IP1"); //13
-    int pos = karp_rabin.position_substr("0123456789", "2344"); //13
-    cout << pos << endl;
-    
+        string str;
+        string substr;
+        int pos;
+
+        switch (chosen_algo)
+        {
+        case 1:
+            cout << "Input string: ";
+            cin >> str;
+            cout << "Input substr: ";
+            cin >> substr;
+            pos = karp_rabin.position_substr(str, substr);
+            cout << pos << endl;
+            break;
+
+        case 2:
+            cout << "Input namefile with graph: ";
+            cin >> namefile;
+            dirGraph = fileWorker.read_directedgraph(namefile);
+            dirGraph.print_graph();
+            cout << "Input start: ";
+            cin >> start;
+            dijkstra.search_paths(dirGraph, start - 1);
+            break;
+            
+        case 3:
+            cout << "Input namefile with graph: ";
+            cin >> namefile;
+            undirGraph = fileWorker.read_undirectedgraph(namefile);
+            undirGraph.print_graph();
+            prima.search_minimum_spanning_tree(undirGraph);
+            prima.print_result();
+            break;
+
+        default:
+            is_run = false;
+            break;
+        }
+    }
 }
