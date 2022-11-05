@@ -12,7 +12,7 @@ void Dijkstra::search_paths(const DirectedGraph& graph, int start_vertices)
 	
 	while (amount_used_vertices != graph.amount_vertices())
 	{
-			// пошук найкоротшого шляху(мітки)
+			// вибір найближчої не поміченої вершини 
 		int min_path = UNEXIST_PATH;
 		for (int i = 0; i < graph.amount_vertices(); i++)
 		{
@@ -36,7 +36,7 @@ void Dijkstra::search_paths(const DirectedGraph& graph, int start_vertices)
 		amount_used_vertices++;
 	}
 
-
+	cout << endl;
 	for (int i = 0; i < paths.size(); i++)
 	{
 		
@@ -44,7 +44,7 @@ void Dijkstra::search_paths(const DirectedGraph& graph, int start_vertices)
 		if (paths[i] != UNEXIST_PATH)
 			cout << paths[i] << endl;
 		else
-			cout << "no exist path" << endl;
+			cout << "unexist path" << endl;
 	}
 
 }
