@@ -33,8 +33,8 @@ int main()
         switch (chosen_algo)
         {
         case 1:
-            cout << "Input string: ";
-            cin >> str;
+            str = "KPI FIOT IPI IP-01 Pasalskyi Olexandr";
+            cout << str << endl;
             cout << "Input substr: ";
             cin >> substr;
             pos = karp_rabin.position_substr(str, substr);
