@@ -2,18 +2,19 @@
 #include <iostream>
 
 #include "FileWorker.h"
+#include "SimplexMethod.h"
 
 
 int main()
 {
-    Matrix A;
-    Matrix B;
-    Matrix C;
+    vector<vector<float>> A;
+    vector<float> B;
+    vector<float> C;
 
     FileWorker fileworker;
     fileworker.read_matrix("file.txt", A, B, C);
-    A.print();
-    B.print();
-    C.print();
+
+    SimplexMethod s(A, B, C);
+    s.CalculateSimplex();
 }
 
