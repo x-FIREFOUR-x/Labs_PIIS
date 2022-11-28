@@ -37,33 +37,10 @@ void SimplexMethod::CalculateSimplex()
     }
     cout << "Answers for the Constraints of variables" << endl;
 
-    for (int i = 0; i < A.size(); i++) 
-    {  //every basic column has the values, get it form B array
-        int count0 = 0;
-        int index = 0;
-        for (int j = 0; j < A.size(); j++) 
-        {
-            if (A[j][i] == 0.0) 
-            {
-                count0 += 1;
-            }
-            else if (A[j][i] == 1) 
-            {
-                index = j;
-            }
-        }
-
-        if (count0 == A.size() - 1) {
-
-            cout << "variable" << index + 1 << ": " << B[index] << endl;  //every basic column has the values, get it form B array
-        }
-        else {
-            cout << "variable" << index + 1 << ": " << 0 << endl;
-
-        }
-
+    for (int i = 0; i < C.size(); i++) 
+    {  
+        cout << "X" << i + 1 << ": " << C[i] << endl;
     }
-
 
     cout << "" << endl;
     cout << "maximum value: " << maximum << endl;  //print the maximum values

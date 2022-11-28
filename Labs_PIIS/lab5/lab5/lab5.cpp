@@ -12,7 +12,7 @@ int main()
     vector<float> C;
 
     FileWorker fileworker;
-    fileworker.read_matrix("file.txt", A, B, C);
+    fileworker.read_matrix("file2.txt", A, B, C);
 
     SimplexMethod s(A, B, C);
     s.CalculateSimplex();
