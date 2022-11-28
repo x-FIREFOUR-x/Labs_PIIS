@@ -1,9 +1,6 @@
-﻿
-#include <iostream>
+﻿#include <iostream>
 
 #include "FileWorker.h"
-#include "SimplexMethodMax.h"
-
 
 int main()
 {
@@ -13,8 +10,5 @@ int main()
 
     FileWorker fileworker;
     fileworker.read_matrix("file2.txt", A, B, C);
-
-    SimplexMethodMax s(A, B, C);
-    s.CalculateSimplex();
 }
 
