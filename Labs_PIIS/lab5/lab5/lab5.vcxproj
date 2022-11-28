@@ -142,12 +142,12 @@
     <ClCompile Include="FileWorker.cpp" />
     <ClCompile Include="lab5.cpp" />
     <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="SimplexMethod.cpp" />
+    <ClCompile Include="SimplexMethodMax.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileWorker.h" />
     <ClInclude Include="Matrix.h" />
-    <ClInclude Include="SimplexMethod.h" />
+    <ClInclude Include="SimplexMethodMax.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

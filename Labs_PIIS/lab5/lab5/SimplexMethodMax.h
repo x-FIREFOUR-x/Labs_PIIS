@@ -5,7 +5,7 @@
 #include "Matrix.h"
 
 using namespace std;
-class SimplexMethod
+class SimplexMethodMax
 {
 	vector<vector<float>> A;
 	vector<float> B;
@@ -15,7 +15,7 @@ class SimplexMethod
 	float maximum;
 
 public:
-	SimplexMethod(vector<vector<float>>& A, vector<float> B, vector<float> C);
+	SimplexMethodMax(vector<vector<float>>& A, vector<float> B, vector<float> C);
 	void print();
 
 	void CalculateSimplex();

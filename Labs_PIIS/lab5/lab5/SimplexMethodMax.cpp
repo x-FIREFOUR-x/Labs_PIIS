@@ -1,13 +1,13 @@
-#include "SimplexMethod.h"
+#include "SimplexMethodMax.h"
 
-SimplexMethod::SimplexMethod(vector<vector<float>>& A, vector<float> B, vector<float> C)
+SimplexMethodMax::SimplexMethodMax(vector<vector<float>>& A, vector<float> B, vector<float> C)
 {
 	this->A = A;
 	this->B = B;
 	this->C = C;
 }
 
-void SimplexMethod::print() 
+void SimplexMethodMax::print()
 {
     for (int i = 0; i < A.size(); i++) 
     {
@@ -20,7 +20,7 @@ void SimplexMethod::print()
     cout << endl;
 }
 
-void SimplexMethod::CalculateSimplex()
+void SimplexMethodMax::CalculateSimplex()
 {
     bool is_finish = false;
 
@@ -49,7 +49,7 @@ void SimplexMethod::CalculateSimplex()
 
 
 
-bool SimplexMethod::simplex_algorithm_calculataion()
+bool SimplexMethodMax::simplex_algorithm_calculataion()
 {
     //check whether the table is optimal,if optimal no need to process further
     if (check_optimality() == true) {
@@ -72,7 +72,7 @@ bool SimplexMethod::simplex_algorithm_calculataion()
     return false;
 }
 
-bool SimplexMethod::check_optimality()
+bool SimplexMethodMax::check_optimality()
 {
     bool is_optimal = false;
     int amount_positve_value = 0;
@@ -96,7 +96,7 @@ bool SimplexMethod::check_optimality()
     return is_optimal;
 }
 
-void SimplexMethod::make_pivotting(int pivot_row, int pivot_column)
+void SimplexMethodMax::make_pivotting(int pivot_row, int pivot_column)
 {
     float pivot_value = A[pivot_row][pivot_column];
     vector<float> pivot_row_values;
@@ -165,14 +165,15 @@ void SimplexMethod::make_pivotting(int pivot_row, int pivot_column)
 
 }
 
-int SimplexMethod::find_pivot_column()
+int SimplexMethodMax::find_pivot_column()
 {
     int index = 0;
     float minm = C[0];
 
     for (int i = 1; i < C.size(); i++) 
     {
-        if (C[i] < minm) {
+        if (C[i] < minm) 
+        {
             minm = C[i];
             index = i;
         }
@@ -180,7 +181,7 @@ int SimplexMethod::find_pivot_column()
     return index;
 }
 
-int SimplexMethod::find_pivot_row(int pivot_column)
+int SimplexMethodMax::find_pivot_row(int pivot_column)
 {
     vector<float> positive_values;
     int amount_negative_value = 0;
