@@ -1,0 +1,163 @@
+#include "SimplexMethod.h"
+
+#include <iomanip>
+#include <iostream>
+
+SimplexMethod::SimplexMethod()
+{
+	A = 
+	{
+		vector<float> {2, 0, 1, 0, 1},
+		vector<float> {2, 0, 0, 1, 0},
+		vector<float> {3, 1, 0, 0, 2}
+	};
+
+	B = { 5, 3, 3 };
+	C = {2, 0, 0, 0, 3};
+
+	f = 2;
+	amount_function = B.size();
+	amount_variables = C.size();
+}
+
+float SimplexMethod::get_value_function()
+{
+	return f;
+}
+
+vector<float> SimplexMethod::calculate_min()
+{
+	print();
+
+	if (!is_optimal())
+	{
+		int index_column = choose_pivot_column();
+		int index_row = choose_pivot_row(index_column);
+
+		swap_variables(index_row, index_column);
+
+		print();
+	}
+
+	return get_basis();
+}
+
+void SimplexMethod::print()
+{
+	cout << "==============================" << endl;
+	for (int i = 0; i < amount_variables; i++)
+	{
+		cout << setw(4) << C[i] << " ";
+	}
+	cout << setw(4) << f << endl;
+
+	for (int i = 0; i < amount_function; i++)
+	{
+		for (int j = 0; j < amount_variables; j++)
+		{
+			cout << setw(4) << A[i][j] << " ";
+		}
+		cout << setw(4) << B[i] << endl;
+	}
+	cout << "==============================" << endl << endl;
+}
+
+bool SimplexMethod::is_optimal()
+{
+	bool is_optimal = true;
+	for (auto item: C)
+	{
+		if (item > 0)
+			is_optimal = false;
+	}
+	return is_optimal;
+}
+
+int SimplexMethod::choose_pivot_column()
+{
+	int index = 0;
+	int max_value = C[index];
+	for (int i = 1; i < amount_variables; i++)
+	{
+		if (C[i] > max_value)
+		{
+			max_value = C[i];
+			index = i;
+		}
+	}
+	return index;
+}
+
+int SimplexMethod::choose_pivot_row(int index_column)
+{
+	int index = 0;
+	float min_value = 100000;
+
+	for (int i = 0; i < amount_function; i++)
+	{
+		if (A[i][index_column] > 0)
+		{
+			float value = B[i] / A[i][index_column];
+			if (value < min_value)
+			{
+				min_value = value;
+				index = i;
+			}
+		}
+	}
+
+	return index;
+}
+
+void SimplexMethod::swap_variables(int index_row, int index_column)
+{
+	float pivot_value = A[index_row][index_column];
+	for (int i = 0; i < amount_variables; i++)
+	{
+		A[index_row][i] = A[index_row][i] / pivot_value;
+	}
+	B[index_row] = B[index_row] / pivot_value;
+
+	f = f - (C[index_column] * B[index_row]);
+	for (int i = 0; i < amount_variables; i++)
+	{
+		C[i] = C[i] - C[index_column] * A[index_row][i];
+	}
+	
+		//повертаєм властивість одиничної матриці
+	for (int i = 0; i < amount_function; i++)
+	{
+		if (i != index_row && A[i][index_column] != 0)
+		{
+			float coef = A[i][index_column];
+			for (int j = 0; j < amount_variables; j++)
+			{
+				A[i][j] = A[i][j] - (coef * A[index_row][j]);
+			}
+			B[i] = B[i] - (coef * B[index_row]);
+		}
+	}
+}
+
+vector<float> SimplexMethod::get_basis()
+{
+	vector<float> basis;
+	for (int i = 0; i < amount_variables; i++)
+	{
+		if (C[i] != 0)
+		{
+			basis.push_back(0);
+		}
+		else
+		{
+			for (int j = 0; j < amount_function; j++)
+			{
+				if (A[j][i] == 1)
+				{
+					basis.push_back(B[j]);
+				}
+			}
+		}
+	}
+	return basis;
+}
