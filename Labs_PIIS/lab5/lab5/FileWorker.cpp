@@ -51,6 +51,10 @@ void FileWorker::read_matrix(string filename, Matrix& A, Matrix& B, Matrix& C)
 void FileWorker::read_matrix(string filename, vector<vector<float>>& A, vector<float>& B, vector<float>& C)
 {
 	ifstream file(filepath + filename);
+
+	if (!file.is_open())
+		throw exception("Unexist file");
+
 	int amount_function;
 	file >> amount_function;
 	int amount_variables;

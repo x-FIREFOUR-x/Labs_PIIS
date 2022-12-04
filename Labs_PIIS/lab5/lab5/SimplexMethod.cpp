@@ -6,19 +6,6 @@
 
 SimplexMethod::SimplexMethod()
 {
-	A = 
-	{
-		vector<float> {2, 0, 1, 0, 1},
-		vector<float> {2, 0, 0, 1, 0},
-		vector<float> {5, 1, 1, 0, 3}
-	};
-
-	B = { 5, 3, 8 };
-	C = {-2, 0, 1, -1, -2};
-
-	f = 0;
-	amount_function = B.size();
-	amount_variables = C.size();
 }
 
 SimplexMethod::SimplexMethod(vector<vector<float>> A, vector<float> B, vector<float> C)
