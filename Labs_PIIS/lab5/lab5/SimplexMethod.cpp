@@ -2,6 +2,7 @@
 
 #include <iomanip>
 #include <iostream>
+#include <exception>
 
 SimplexMethod::SimplexMethod()
 {
@@ -9,13 +10,13 @@ SimplexMethod::SimplexMethod()
 	{
 		vector<float> {2, 0, 1, 0, 1},
 		vector<float> {2, 0, 0, 1, 0},
-		vector<float> {3, 1, 0, 0, 2}
+		vector<float> {5, 1, 1, 0, 3}
 	};
 
-	B = { 5, 3, 3 };
-	C = {2, 0, 0, 0, 3};
+	B = { 5, 3, 8 };
+	C = {-2, 0, 1, -1, -2};
 
-	f = 2;
+	f = 0;
 	amount_function = B.size();
 	amount_variables = C.size();
 }
@@ -27,9 +28,11 @@ float SimplexMethod::get_value_function()
 
 vector<float> SimplexMethod::calculate_min()
 {
+	create_start_simplex_table();
+	cout << "------Start Simplex table--------" << endl;
 	print();
 
-	if (!is_optimal())
+	while (!is_optimal())
 	{
 		int index_column = choose_pivot_column();
 		int index_row = choose_pivot_row(index_column);
@@ -42,33 +45,17 @@ vector<float> SimplexMethod::calculate_min()
 	return get_basis();
 }
 
-void SimplexMethod::print()
-{
-	cout << "==============================" << endl;
-	for (int i = 0; i < amount_variables; i++)
-	{
-		cout << setw(4) << C[i] << " ";
-	}
-	cout << setw(4) << f << endl;
-
-	for (int i = 0; i < amount_function; i++)
-	{
-		for (int j = 0; j < amount_variables; j++)
-		{
-			cout << setw(4) << A[i][j] << " ";
-		}
-		cout << setw(4) << B[i] << endl;
-	}
-	cout << "==============================" << endl << endl;
-}
-
 bool SimplexMethod::is_optimal()
 {
 	bool is_optimal = true;
 	for (auto item: C)
 	{
 		if (item > 0)
+		{
 			is_optimal = false;
+			break;
+		}
+			
 	}
 	return is_optimal;
 }
@@ -161,3 +148,118 @@ vector<float> SimplexMethod::get_basis()
 	}
 	return basis;
 }
+
+
+
+void SimplexMethod::print()
+{
+	int amount_symbol = 5;
+	cout << "==============================" << endl;
+	for (int i = 0; i < amount_variables; i++)
+	{
+		cout << setw(amount_symbol) << C[i];
+	}
+	cout << setw(amount_symbol - 1) << "|" << f << endl;
+
+	cout << "------------------------------" << endl;
+	for (int i = 0; i < amount_function; i++)
+	{
+		for (int j = 0; j < amount_variables; j++)
+		{
+			cout << setw(amount_symbol) << A[i][j];
+		}
+		cout << setw(amount_symbol - 1) << "|" << B[i] << endl;
+	}
+	cout << "==============================" << endl << endl;
+}
+
+
+
+void SimplexMethod::create_start_simplex_table()
+{
+	vector<vector<float>> table;
+	for (int i = 0; i < amount_function; i++)
+	{
+		vector<float> line;
+		for (int j = 0; j < amount_variables; j++)
+		{
+			line.push_back(A[i][j]);
+		}
+		line.push_back(B[i]);
+		table.push_back(line);
+	}
+	vector<float> line;
+	for (int i = 0; i < amount_variables; i++)
+	{
+		line.push_back(-C[i]);
+	}
+	line.push_back(f);
+	table.push_back(line);
+
+	for (int i = 0; i < amount_function; i++)
+	{
+		if (table[i][i] == 0)
+		{
+			int j = i;
+			while (j < amount_variables + 1 && table[i][j] == 0)
+				j += 1;
+			if (j == amount_variables + 1)
+				throw exception("Zero!");
+			table = swap_rows(table, i, j);
+		}
+
+		float ratio = 1 / table[i][i];
+		for (int k = 0; k < amount_variables + 1; k++)
+			table[i][k] = ratio * table[i][k];
+
+		for (int j = i + 1; j < amount_function + 1; j++)
+		{
+			ratio = table[j][i];
+			for (int k = 0; k < amount_variables + 1; k++)
+				table[j][k] = table[j][k] - ratio * table[i][k];
+		}
+	}
+
+	for (int i = amount_function - 1; i > -1; i--)
+	{
+		for (int j = i - 1; j > -1; j--)
+		{
+			float ratio = table[j][i];
+			for (int k = 0; k < amount_variables + 1; k++)
+			{
+				table[j][k] = table[j][k] - ratio * table[i][k];
+			}
+
+		}
+
+	}
+
+
+	for (int i = 0; i < A.size(); i++)
+	{
+		for (int j = 0; j < A[i].size(); j++)
+		{
+			A[i][j] = table[i][j];
+		}
+	}
+	for (int i = 0; i < B.size(); i++)
+	{
+		B[i] = table[i][table[0].size() - 1];
+	}
+	for (int i = 0; i < C.size(); i++)
+	{
+		C[i] = table[table.size() - 1][i];
+	}
+	f = table[table.size() - 1][table[0].size() - 1];
+}
+
+vector<vector<float>> SimplexMethod::swap_rows(vector<vector<float>>& table, int index1, int index2)
+{
+	vector<float> buf = table[index1];
+	table[index1] = table[index2];
+	table[index2] = buf;
+
+	return table;
+}
+
+
