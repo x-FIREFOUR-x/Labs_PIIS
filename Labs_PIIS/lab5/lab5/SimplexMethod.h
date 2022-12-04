@@ -15,6 +15,7 @@ class SimplexMethod
 
 public:
 	SimplexMethod();
+	SimplexMethod(vector<vector<float>> A, vector<float> B, vector<float> C);
 
 	vector<float> calculate_min();
 	float get_value_function();

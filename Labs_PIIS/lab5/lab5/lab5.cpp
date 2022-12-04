@@ -10,9 +10,10 @@ int main()
     vector<float> C;
 
     FileWorker fileworker;
-    fileworker.read_matrix("file2.txt", A, B, C);
+    //fileworker.read_matrix("fileTest.txt", A, B, C);
+    fileworker.read_matrix("file16.txt", A, B, C);
 
-    SimplexMethod algo;
+    SimplexMethod algo(A, B, C);
     vector<float> basis = algo.calculate_min();
 
     for (int i = 0; i < basis.size(); i++)

@@ -21,6 +21,16 @@ SimplexMethod::SimplexMethod()
 	amount_variables = C.size();
 }
 
+SimplexMethod::SimplexMethod(vector<vector<float>> A, vector<float> B, vector<float> C)
+{
+	this->A = A;
+	this->B = B;
+	this->C = C;
+
+	amount_function = B.size();
+	amount_variables = C.size();
+}
+
 float SimplexMethod::get_value_function()
 {
 	return f;
@@ -32,6 +42,7 @@ vector<float> SimplexMethod::calculate_min()
 	cout << "------Start Simplex table--------" << endl;
 	print();
 
+	cout << "----------Next steps------------" << endl;
 	while (!is_optimal())
 	{
 		int index_column = choose_pivot_column();
@@ -153,24 +164,25 @@ vector<float> SimplexMethod::get_basis()
 
 void SimplexMethod::print()
 {
-	int amount_symbol = 5;
-	cout << "==============================" << endl;
+	int amount_symbol = 7;
+	int after_point = 3;
+	cout << "===================================================" << endl;
 	for (int i = 0; i < amount_variables; i++)
 	{
-		cout << setw(amount_symbol) << C[i];
+		cout << std::fixed << std::setprecision(after_point) << " " << setw(amount_symbol) << C[i];
 	}
-	cout << setw(amount_symbol - 1) << "|" << f << endl;
+	cout << std::fixed << std::setprecision(after_point)  << "|" << setw(amount_symbol) << f << endl;
 
-	cout << "------------------------------" << endl;
+	cout << "---------------------------------------------------" << endl;
 	for (int i = 0; i < amount_function; i++)
 	{
 		for (int j = 0; j < amount_variables; j++)
 		{
-			cout << setw(amount_symbol) << A[i][j];
+			cout << std::fixed << std::setprecision(after_point) << " " << setw(amount_symbol) << A[i][j];
 		}
-		cout << setw(amount_symbol - 1) << "|" << B[i] << endl;
+		cout << std::fixed << std::setprecision(after_point) << "|" << setw(amount_symbol) << B[i] << endl;
 	}
-	cout << "==============================" << endl << endl;
+	cout << "===================================================" << endl << endl;
 }
 
 
