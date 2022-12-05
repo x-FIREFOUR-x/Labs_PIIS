@@ -27,7 +27,7 @@ int main()
             is_correct = false;
         }
     }
-    
+
     SimplexMethod algo(A, B, C);
     vector<float> basis = algo.calculate_min();
 

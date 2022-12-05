@@ -25,6 +25,8 @@ float SimplexMethod::get_value_function()
 
 vector<float> SimplexMethod::calculate_min()
 {
+	print_start();
+
 	create_start_simplex_table();
 	cout << "------Start Simplex table--------" << endl;
 	print();
@@ -170,6 +172,34 @@ void SimplexMethod::print()
 		cout << std::fixed << std::setprecision(after_point) << "|" << setw(amount_symbol) << B[i] << endl;
 	}
 	cout << "===================================================" << endl << endl;
+}
+
+void SimplexMethod::print_start()
+{
+	cout << "============Input data==========" << endl;
+	cout << "A:" << endl;
+	for (auto line : A)
+	{
+		for (auto elem : line)
+		{
+			cout << setw(3) << elem << " ";
+		}
+		cout << endl;
+	}
+
+	cout << "B:" << endl;
+	for (auto elem : B)
+	{
+		cout << setw(3) << elem << " ";
+	}
+	cout << endl;
+
+	cout << "c:" << endl;
+	for (auto elem : C)
+	{
+		cout << setw(3) << elem << " ";
+	}
+	cout << endl << endl;
 }
 
 

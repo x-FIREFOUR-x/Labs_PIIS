@@ -32,5 +32,6 @@ private:
 	vector<vector<float>> swap_rows(vector<vector<float>>& table, int index1, int index2);
 
 	void print();
+	void print_start();
 };
 
