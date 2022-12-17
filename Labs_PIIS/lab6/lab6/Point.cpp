@@ -5,7 +5,7 @@ Point::Point(int size)
 	coordinates.resize(size, 0);
 }
 
-Point::Point(vector<float> p)
+Point::Point(vector<double> p)
 {
 	coordinates = p;
 }
@@ -15,7 +15,7 @@ Point::Point()
 
 }
 
-float& Point::operator[](int index)
+double& Point::operator[](int index)
 {
 	return coordinates[index];
 }
@@ -44,7 +44,7 @@ Point Point::operator-(const Point& point2)
 	return result;
 }
 
-Point Point::operator*(const float number)
+Point Point::operator*(const double number)
 {
 	Point result(coordinates.size());
 
@@ -56,7 +56,7 @@ Point Point::operator*(const float number)
 	return result;
 }
 
-Point Point::operator/(const float number)
+Point Point::operator/(const double number)
 {
 	Point result(coordinates.size());
 

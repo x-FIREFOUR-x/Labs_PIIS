@@ -11,7 +11,7 @@ class SimplexMatrix
 private:
 	vector<Point> points;
 
-	vector<float> function_values;
+	vector<double> function_values;
 
 public:
 	SimplexMatrix(int amount_points, int amount_varlibes);
@@ -19,8 +19,8 @@ public:
 	Point& operator[](int index_point);
 	Point& worst_point();
 
-	void calculate_values_function(float (*function)(Point));
-	void sort(float (*function)(Point));
+	void calculate_values_function(double (*function)(Point));
+	void sort(double (*function)(Point));
 
 	void print();
 };

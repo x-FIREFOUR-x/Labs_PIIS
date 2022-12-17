@@ -6,7 +6,7 @@
 
 SimplexMatrix::SimplexMatrix(int amount_points, int amount_varlibes)
 {
-	function_values = vector<float>(amount_points, 0);
+	function_values = vector<double>(amount_points, 0);
 
 	for (int i = 0; i < amount_points; i++)
 	{
@@ -26,7 +26,7 @@ Point& SimplexMatrix::worst_point()
 }
 
 
-void SimplexMatrix::calculate_values_function(float (*function)(Point))
+void SimplexMatrix::calculate_values_function(double (*function)(Point))
 {
 	for (int i = 0; i < points.size(); i++)
 	{
@@ -34,11 +34,11 @@ void SimplexMatrix::calculate_values_function(float (*function)(Point))
 	}
 }
 
-void SimplexMatrix::sort(float (*function)(Point))
+void SimplexMatrix::sort(double (*function)(Point))
 {
 	stable_sort(points.begin(), points.end(), [&function](Point a, Point b) {return function(a) < function(b); });
 
-	stable_sort(function_values.begin(), function_values.end(), [](float a, float b) {return a < b; });
+	stable_sort(function_values.begin(), function_values.end(), [](double a, double b) {return a < b; });
 }
 
 void SimplexMatrix::print()

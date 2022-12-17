@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-float NelderMeadMethod::target_function(Point point)
+double NelderMeadMethod::target_function(Point point)
 {
-    float f = -5 * point[0] * pow(point[1], 2) * point[2]
+    double f = -5 * point[0] * pow(point[1], 2) * point[2]
         + 2 * pow(point[0], 2) * point[1]
         - 3 * point[0] * pow(point[1], 4)
         + point[0] * pow(point[2], 2);
@@ -12,7 +12,7 @@ float NelderMeadMethod::target_function(Point point)
     return f;
 }
 
-void NelderMeadMethod::calculate(Point start_point, float distance_two_points, float precision, int number_iterations)
+void NelderMeadMethod::calculate(Point start_point, double distance_two_points, double precision, int number_iterations)
 {
     n = start_point.size();
     SimplexMatrix simplex = create_start_points(start_point, distance_two_points);
@@ -85,10 +85,10 @@ void NelderMeadMethod::calculate(Point start_point, float distance_two_points, f
 }
 
 
-SimplexMatrix NelderMeadMethod::create_start_points(Point start_point, float distance_two_points)
+SimplexMatrix NelderMeadMethod::create_start_points(Point start_point, double distance_two_points)
 {
-    float d1 = 1 / (n * sqrt(2)) * (sqrt(n + 1) + n - 1);
-    float d2 = 1 / (n * sqrt(2)) * (sqrt(n + 1) - 1);
+    double d1 = 1 / (n * sqrt(2)) * (sqrt(n + 1) + n - 1);
+    double d2 = 1 / (n * sqrt(2)) * (sqrt(n + 1) - 1);
 
     SimplexMatrix simplex(n + 1, n);
     simplex[0] = start_point;
@@ -132,13 +132,13 @@ Point NelderMeadMethod::get_reflected_point(Point center_point, Point worst_poin
 
 Point NelderMeadMethod::get_expanded_point(Point center_point, Point reflected_point)
 {
-    float gamma = (gamma_lower + gamma_upper) / 2;
+    double gamma = (gamma_lower + gamma_upper) / 2;
     return center_point + (reflected_point - center_point) * gamma;
 }
 
 Point NelderMeadMethod::get_contracted_point(Point center_point, Point point)
 {
-    float beta = (beta_lower + beta_upper) / 2;
+    double beta = (beta_lower + beta_upper) / 2;
     return center_point + (point - center_point) * beta;
 }
 
@@ -152,9 +152,9 @@ SimplexMatrix NelderMeadMethod::replace_points_to_best(SimplexMatrix simplex)
     return simplex;
 }
 
-bool NelderMeadMethod::check_stop(SimplexMatrix simplex, Point center_point, float precision)
+bool NelderMeadMethod::check_stop(SimplexMatrix simplex, Point center_point, double precision)
 {
-    float suma = 0;
+    double suma = 0;
     for (int i = 0; i < n + 1; i++)
     {
         suma += pow(target_function(simplex[i]) - target_function(center_point), 2);
