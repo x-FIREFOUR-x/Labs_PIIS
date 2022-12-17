@@ -22,5 +22,6 @@ public:
 	void calculate_values_function(float (*function)(Point));
 	void sort(float (*function)(Point));
 
+	void print();
 };
 

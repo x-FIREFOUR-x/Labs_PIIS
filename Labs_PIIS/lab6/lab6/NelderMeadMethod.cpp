@@ -1,5 +1,7 @@
 #include "NelderMeadMethod.h"
 
+#include <iostream>
+
 float NelderMeadMethod::target_function(Point point)
 {
     float f = -5 * point[0] * pow(point[1], 2) * point[2]
@@ -19,6 +21,9 @@ void NelderMeadMethod::calculate(Point start_point, float distance_two_points, f
     {
         simplex.calculate_values_function(target_function);
         simplex.sort(target_function);
+
+        cout << i << "===================================================" << endl;
+        simplex.print();
 
         Point center_point = get_point_center_gravity(simplex);
 
@@ -74,6 +79,9 @@ void NelderMeadMethod::calculate(Point start_point, float distance_two_points, f
         replace_points_to_best(simplex);
     }
     
+
+    cout << number_iterations << "===================================================" << endl;
+    simplex.print();
 }
 
 
