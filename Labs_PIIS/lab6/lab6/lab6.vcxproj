@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="lab6.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="SimplexMatrix.cpp" />
     <ClCompile Include="NelderMeadMethod.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Point.h" />
     <ClInclude Include="SimplexMatrix.h" />
     <ClInclude Include="NelderMeadMethod.h" />
   </ItemGroup>

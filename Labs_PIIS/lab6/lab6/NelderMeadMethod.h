@@ -15,12 +15,15 @@ private:
     int n;
 
 public:
-    static float target_function(vector<float> point);
+    static float target_function(Point point);
     
-    void calculate(vector<float> start_point, float distance_two_points, float precision, int number_iterations);
+    void calculate(Point start_point, float distance_two_points, float precision, int number_iterations);
 
 private:
 
-    SimplexMatrix get_start_points(vector<float> start_point, float distance_two_points);
+    SimplexMatrix get_start_points(Point start_point, float distance_two_points);
+
+    Point get_point_center_gravity(SimplexMatrix simplex);
+    Point get_reflected_point(Point center_point, Point worst_point);
 };
 
