@@ -14,10 +14,10 @@ public:
 	
 	float& operator[](int index);
 
-	Point& operator+(const Point& point2);
-	Point& operator-(const Point& point2);
-	Point& operator*(const float number);
-	Point& operator/(const float number);
+	Point operator+(const Point& point2);
+	Point operator-(const Point& point2);
+	Point operator*(const float number);
+	Point operator/(const float number);
 
 	int size();
 };

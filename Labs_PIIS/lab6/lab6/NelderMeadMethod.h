@@ -13,7 +13,7 @@ private:
     const float beta_lower = 0.4;
     const float beta_upper = 0.6;
     const float sigma = 0.5;
-    int n;
+    int n = 3;
 
 public:
     static float target_function(Point point);
@@ -27,7 +27,9 @@ private:
     Point get_point_center_gravity(SimplexMatrix simplex);
     Point get_reflected_point(Point center_point, Point worst_point);
     Point get_expanded_point(Point center_point, Point reflected_point);
-    Point get_contracted_point(Point center_point, Point reflected_point, float precision);
+    Point get_contracted_point(Point center_point, Point reflected_point);
     SimplexMatrix replace_points_to_best(SimplexMatrix simplex);
+
+    bool check_stop(SimplexMatrix simplex, Point center_point, float precision);
 };
 

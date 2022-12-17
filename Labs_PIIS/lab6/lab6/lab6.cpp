@@ -9,5 +9,5 @@ int main()
     NelderMeadMethod algo;
 
     vector<float> startpoint{ 3, 3, 2 };
-    algo.calculate(startpoint, 1, 0, 10);
+    algo.calculate(startpoint, 1, 0.01, 10);
 }

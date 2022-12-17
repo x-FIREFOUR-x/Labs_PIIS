@@ -18,6 +18,11 @@ Point& SimplexMatrix::operator[](int index_point)
 	return points[index_point];
 }
 
+Point& SimplexMatrix::worst_point()
+{
+	return points.back();
+}
+
 
 void SimplexMatrix::calculate_values_function(float (*function)(Point))
 {
@@ -33,5 +38,6 @@ void SimplexMatrix::sort(float (*function)(Point))
 
 	stable_sort(function_values.begin(), function_values.end(), [](float a, float b) {return a < b; });
 }
+
 
 

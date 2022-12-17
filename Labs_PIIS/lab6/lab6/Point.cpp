@@ -20,7 +20,7 @@ float& Point::operator[](int index)
 	return coordinates[index];
 }
 
-Point& Point::operator+(const Point& point2)
+Point Point::operator+(const Point& point2)
 {
 	Point result(coordinates.size());
 
@@ -32,7 +32,7 @@ Point& Point::operator+(const Point& point2)
 	return result;
 }
 
-Point& Point::operator-(const Point& point2)
+Point Point::operator-(const Point& point2)
 {
 	Point result(coordinates.size());
 
@@ -44,7 +44,7 @@ Point& Point::operator-(const Point& point2)
 	return result;
 }
 
-Point& Point::operator*(const float number)
+Point Point::operator*(const float number)
 {
 	Point result(coordinates.size());
 
@@ -56,7 +56,7 @@ Point& Point::operator*(const float number)
 	return result;
 }
 
-Point& Point::operator/(const float number)
+Point Point::operator/(const float number)
 {
 	Point result(coordinates.size());
 
