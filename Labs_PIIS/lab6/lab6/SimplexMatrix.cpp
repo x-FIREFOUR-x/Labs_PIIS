@@ -54,6 +54,3 @@ void SimplexMatrix::print()
 	}
 	cout << endl;
 }
-
-
-

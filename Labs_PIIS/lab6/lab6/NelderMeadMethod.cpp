@@ -164,4 +164,3 @@ bool NelderMeadMethod::check_stop(SimplexMatrix simplex, Point center_point, dou
     
     return suma <= precision;
 }
-
