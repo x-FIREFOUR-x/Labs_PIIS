@@ -13,11 +13,12 @@ float NelderMeadMethod::target_function(Point point)
 void NelderMeadMethod::calculate(Point start_point, float distance_two_points, float precision, int number_iterations)
 {
     n = start_point.size();
-    SimplexMatrix simplex = get_start_points(start_point, distance_two_points);
-    simplex.calculate_values_function(target_function);
+    SimplexMatrix simplex = create_start_points(start_point, distance_two_points);
 
     for (int i = 0; i < number_iterations; i++)
     {
+        simplex.calculate_values_function(target_function);
+
         simplex.sort(target_function);
 
         Point center_point = get_point_center_gravity(simplex);
@@ -26,7 +27,7 @@ void NelderMeadMethod::calculate(Point start_point, float distance_two_points, f
 }
 
 
-SimplexMatrix NelderMeadMethod::get_start_points(Point start_point, float distance_two_points)
+SimplexMatrix NelderMeadMethod::create_start_points(Point start_point, float distance_two_points)
 {
     float d1 = 1 / (n * sqrt(2)) * (sqrt(n + 1) + n - 1);
     float d2 = 1 / (n * sqrt(2)) * (sqrt(n + 1) - 1);
@@ -53,7 +54,6 @@ SimplexMatrix NelderMeadMethod::get_start_points(Point start_point, float distan
     return simplex;
 }
 
-
 Point NelderMeadMethod::get_point_center_gravity(SimplexMatrix simplex)
 {
     Point center_point = simplex[0];
@@ -69,6 +69,28 @@ Point NelderMeadMethod::get_point_center_gravity(SimplexMatrix simplex)
 
 Point NelderMeadMethod::get_reflected_point(Point center_point, Point worst_point)
 {
-    Point reflected_point = center_point + (center_point - worst_point) * alpha;
-    return reflected_point;
+    return center_point + (center_point - worst_point) * alpha;
 }
+
+Point NelderMeadMethod::get_expanded_point(Point center_point, Point reflected_point)
+{
+    float gamma = (gamma_lower + gamma_upper) / 2;
+    return center_point + (reflected_point - center_point) * gamma;
+}
+
+Point NelderMeadMethod::get_contracted_point(Point center_point, Point reflected_point, float precision)
+{
+    Point contracted_point = center_point + (reflected_point - center_point) * precision;
+    return contracted_point;
+}
+
+SimplexMatrix NelderMeadMethod::replace_points_to_best(SimplexMatrix simplex)
+{
+    for (int i = 1; i < n + 1; i++)
+    {
+        simplex[i] = simplex[0] + (simplex[i] - simplex[0]) * sigma;
+    }
+
+    return simplex;
+}
+
